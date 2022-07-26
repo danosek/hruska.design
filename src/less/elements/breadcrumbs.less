@@ -1,0 +1,24 @@
+breadcrumbs {
+    --breadcrumb-gap: 0.25rem;
+    display: inline-block;
+    //gap: var(--breadcrumb-gap);
+}
+
+breadcrumb {
+    display: inline;
+
+    a {
+        @media (pointer: fine) {
+            text-decoration-line: none;
+        }
+    }
+
+    & + & {
+        &::before {
+            content: "/";
+            pointer-events: none;
+            margin-inline: var(--breadcrumb-gap);
+            color: var(--text-disabled-color);
+        }
+    }
+}

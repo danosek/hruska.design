@@ -1,0 +1,22 @@
+a {
+    --link-color: currentColor;
+    --link-bg: var(--overlay);
+    --link-decoration-color: var(--divider);
+
+    position: relative;
+    z-index: 0;
+    color: var(--link-color);
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+    text-decoration-color: var(--link-decoration-color);
+    border-radius: var(--radius);
+
+    &:hover {
+        --alpha: 0.2;
+        text-decoration: none;
+        background-color: var(--link-bg);
+        //margin: var(--tag-margin);
+        //padding: var(--tag-padding);
+    }  
+}

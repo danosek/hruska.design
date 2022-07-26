@@ -1,0 +1,18 @@
+ninja-keys {
+    --ninja-accent-color: var(--primary);
+    --ninja-font-size: var(--font-size-base);
+    --ninja-modal-background: var(--grey--90);
+    --ninja-z-index: 10;
+
+    &::part(ninja-input) {
+        padding: 1rem;
+    }
+
+    &::part(ninja-action) {
+        font-size: var(--font-size-l);
+    }
+    
+    &::part(ninja-selected) {
+        border-left: var(--border-width) solid var(--ninja-accent-color);
+      }
+}

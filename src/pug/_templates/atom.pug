@@ -1,0 +1,16 @@
+doctype xml
+feed(xmlns="http://www.w3.org/2005/Atom" xml:base="https://example.org")
+    id https://example.org/atom.xml
+    title Daniel Hruška's Blog
+    if mvb.articles.length > 0
+        updated= mvb.articles[0].date.toISOString()
+    link(href="/")
+    link(rel="self" href="/atom.xml")
+    if mvb.articles.length > 0
+        for article in mvb.articles
+            entry
+                id= article.id
+                title= article.title
+                link(href=article.permalink)
+                updated= article.date.toISOString()
+                content(type="html")= article.content

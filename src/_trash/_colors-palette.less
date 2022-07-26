@@ -1,0 +1,357 @@
+﻿@import (reference) "./_colors-branding.less";
+
+// Base
+
+@x-clr-bs-lt: "sixty__@{branding-secondary}--base";
+@x-clr-bs-dt: "fifty__@{branding-secondary}--base";
+
+@sixty__red--base        : hsl(0, 65%, 48%);
+@fifty__red--base        : hsl(0, 78%, 62%);
+@sixty__pink--base       : hsl(340, 66%, 47%);
+@fifty__pink--base       : hsl(340, 72%, 61%);
+@sixty__purple--base     : hsl(293, 52%, 48%);
+@fifty__purple--base     : hsl(293, 61%, 63%);
+@sixty__deeppurple--base : hsl(265, 57%, 55%);
+@fifty__deeppurple--base : hsl(265, 73%, 70%);
+@sixty__indigo--base     : hsl(230, 55%, 54%);
+@fifty__indigo--base     : hsl(230, 65%, 66%);
+@sixty__blue--base       : hsl(212, 70%, 58%);
+@fifty__blue--base       : hsl(212, 72%, 65%);
+@sixty__lightblue--base  : hsl(199, 72%, 54%);
+@fifty__lightblue--base  : hsl(199, 71%, 66%);
+@sixty__cyan--base       : hsl(185, 74%, 45%);
+@fifty__cyan--base       : hsl(185, 68%, 59%);
+@sixty__teal--base       : hsl(162, 74%, 43%);
+@fifty__teal--base       : hsl(162, 62%, 56%);
+@sixty__green--base      : hsl(120, 57%, 47%);
+@fifty__green--base      : hsl(120, 54%, 59%);
+@sixty__lightgreen--base : hsl(90, 68%, 45%);
+@fifty__lightgreen--base : hsl(90, 64%, 59%);
+@sixty__lime--base       : hsl(72, 77%, 47%);
+@fifty__lime--base       : hsl(72, 74%, 59%);
+@sixty__yellow--base     : hsl(53, 90%, 49%);
+@fifty__yellow--base     : hsl(53, 90%, 60%);
+@sixty__amber--base      : hsl(42, 92%, 49%);
+@fifty__amber--base      : hsl(42, 95%, 60%);
+@sixty__orange--base     : hsl(32, 100%, 40%);
+@fifty__orange--base     : hsl(32, 75%, 55%);
+@sixty__deeporange--base : hsl(14, 70%, 52%);
+@fifty__deeporange--base : hsl(14, 70%, 55%);
+@sixty__brown--base      : hsl(13, 30%, 38%);
+@fifty__brown--base      : hsl(13, 25%, 55%);
+@sixty__grey--base       : hsl(hue(@@x-clr-bs-lt), 0%, 25%); // Odstíny šedi mají nádech sekundární barvy
+@fifty__grey--base       : hsl(hue(@@x-clr-bs-dt), 0%, 75%);
+
+// Tints and shades
+
+@tint-10 : 92%;
+@tint-20 : 80%;
+@tint-30 : 60%;
+@tint-40 : 30%;
+
+@shade-70 : 30%;
+@shade-80 : 50%;
+@shade-90 : 70%;
+@shade-100: 85%;
+
+// Desaturates
+
+@desat-10 : 20%;
+@desat-20 : 20%;
+@desat-30 : 20%;
+@desat-40 : 20%;
+@desat-70 : 20%;
+@desat-80 : 20%;
+@desat-90 : 20%;
+@desat-100: 20%;
+
+// Generated pallete
+
+// Red
+
+@red--10  : desaturate(tint(@fifty__red--base, @tint-10), @desat-10);
+@red--20  : desaturate(tint(@fifty__red--base, @tint-20), @desat-20);
+@red--30  : desaturate(tint(@fifty__red--base, @tint-30), @desat-30);
+@red--40  : desaturate(tint(@fifty__red--base, @tint-40), @desat-40);
+@red--50  : desaturate(tint(@fifty__red--base, 0%), 0%);
+@red--60  : desaturate(shade(@sixty__red--base, 0%), 0%);
+@red--70  : desaturate(shade(@sixty__red--base, @shade-70), @desat-70);
+@red--80  : desaturate(shade(@sixty__red--base, @shade-80), @desat-80);
+@red--90  : desaturate(shade(@sixty__red--base, @shade-90), @desat-90);
+@red--100 : desaturate(shade(@sixty__red--base, @shade-100), @desat-100);
+
+@red: @sixty__red--base @fifty__red--base;
+
+// Pink
+
+@pink--10  : desaturate(tint(@fifty__pink--base, @tint-10), @desat-10);
+@pink--20  : desaturate(tint(@fifty__pink--base, @tint-20), @desat-20);
+@pink--30  : desaturate(tint(@fifty__pink--base, @tint-30), @desat-30);
+@pink--40  : desaturate(tint(@fifty__pink--base, @tint-40), @desat-40);
+@pink--50  : desaturate(tint(@fifty__pink--base, 0%), 0%);
+@pink--60  : desaturate(shade(@sixty__pink--base, 0%), 0%);
+@pink--70  : desaturate(shade(@sixty__pink--base, @shade-70), @desat-70);
+@pink--80  : desaturate(shade(@sixty__pink--base, @shade-80), @desat-80);
+@pink--90  : desaturate(shade(@sixty__pink--base, @shade-90), @desat-90);
+@pink--100 : desaturate(shade(@sixty__pink--base, @shade-100), @desat-100);
+
+@pink: @sixty__pink--base @fifty__pink--base;
+
+// Purple
+
+@purple--10  : desaturate(tint(@fifty__purple--base, @tint-10), @desat-10);
+@purple--20  : desaturate(tint(@fifty__purple--base, @tint-20), @desat-20);
+@purple--30  : desaturate(tint(@fifty__purple--base, @tint-30), @desat-30);
+@purple--40  : desaturate(tint(@fifty__purple--base, @tint-40), @desat-40);
+@purple--50  : desaturate(tint(@fifty__purple--base, 0%), 0%);
+@purple--60  : desaturate(shade(@sixty__purple--base, 0%), 0%);
+@purple--70  : desaturate(shade(@sixty__purple--base, @shade-70), @desat-70);
+@purple--80  : desaturate(shade(@sixty__purple--base, @shade-80), @desat-80);
+@purple--90  : desaturate(shade(@sixty__purple--base, @shade-90), @desat-90);
+@purple--100 : desaturate(shade(@sixty__purple--base, @shade-100), @desat-100);
+
+@purple: @sixty__purple--base @fifty__purple--base;
+
+// Deep Purple
+
+@deeppurple--10  : desaturate(tint(@fifty__deeppurple--base, @tint-10), @desat-10);
+@deeppurple--20  : desaturate(tint(@fifty__deeppurple--base, @tint-20), @desat-20);
+@deeppurple--30  : desaturate(tint(@fifty__deeppurple--base, @tint-30), @desat-30);
+@deeppurple--40  : desaturate(tint(@fifty__deeppurple--base, @tint-40), @desat-40);
+@deeppurple--50  : desaturate(tint(@fifty__deeppurple--base, 0%), 0%);
+@deeppurple--60  : desaturate(shade(@sixty__deeppurple--base, 0%), 0%);
+@deeppurple--70  : desaturate(shade(@sixty__deeppurple--base, @shade-70), @desat-70);
+@deeppurple--80  : desaturate(shade(@sixty__deeppurple--base, @shade-80), @desat-80);
+@deeppurple--90  : desaturate(shade(@sixty__deeppurple--base, @shade-90), @desat-90);
+@deeppurple--100 : desaturate(shade(@sixty__deeppurple--base, @shade-100), @desat-100);
+
+@deeppurple: @sixty__deeppurple--base @fifty__deeppurple--base;
+
+// Indigo
+
+@indigo--10  : desaturate(tint(@fifty__indigo--base, @tint-10), @desat-10);
+@indigo--20  : desaturate(tint(@fifty__indigo--base, @tint-20), @desat-20);
+@indigo--30  : desaturate(tint(@fifty__indigo--base, @tint-30), @desat-30);
+@indigo--40  : desaturate(tint(@fifty__indigo--base, @tint-40), @desat-40);
+@indigo--50  : desaturate(tint(@fifty__indigo--base, 0%), 0%);
+@indigo--60  : desaturate(shade(@sixty__indigo--base, 0%), 0%);
+@indigo--70  : desaturate(shade(@sixty__indigo--base, @shade-70), @desat-70);
+@indigo--80  : desaturate(shade(@sixty__indigo--base, @shade-80), @desat-80);
+@indigo--90  : desaturate(shade(@sixty__indigo--base, @shade-90), @desat-90);
+@indigo--100 : desaturate(shade(@sixty__indigo--base, @shade-100), @desat-100);
+
+@indigo: @sixty__indigo--base @fifty__indigo--base;
+
+// Blue
+
+@blue--10  : desaturate(tint(@fifty__blue--base, @tint-10), @desat-10);
+@blue--20  : desaturate(tint(@fifty__blue--base, @tint-20), @desat-20);
+@blue--30  : desaturate(tint(@fifty__blue--base, @tint-30), @desat-30);
+@blue--40  : desaturate(tint(@fifty__blue--base, @tint-40), @desat-40);
+@blue--50  : desaturate(tint(@fifty__blue--base, 0%), 0%);
+@blue--60  : desaturate(shade(@sixty__blue--base, 0%), 0%);
+@blue--70  : desaturate(shade(@sixty__blue--base, @shade-70), @desat-70);
+@blue--80  : desaturate(shade(@sixty__blue--base, @shade-80), @desat-80);
+@blue--90  : desaturate(shade(@sixty__blue--base, @shade-90), @desat-90);
+@blue--100 : desaturate(shade(@sixty__blue--base, @shade-100), @desat-100);
+
+@blue: @sixty__blue--base @fifty__blue--base;
+
+// Light Blue
+
+@lightblue--10  : desaturate(tint(@fifty__lightblue--base, @tint-10), @desat-10);
+@lightblue--20  : desaturate(tint(@fifty__lightblue--base, @tint-20), @desat-20);
+@lightblue--30  : desaturate(tint(@fifty__lightblue--base, @tint-30), @desat-30);
+@lightblue--40  : desaturate(tint(@fifty__lightblue--base, @tint-40), @desat-40);
+@lightblue--50  : desaturate(tint(@fifty__lightblue--base, 0%), 0%);
+@lightblue--60  : desaturate(shade(@sixty__lightblue--base, 0%), 0%);
+@lightblue--70  : desaturate(shade(@sixty__lightblue--base, @shade-70), @desat-70);
+@lightblue--80  : desaturate(shade(@sixty__lightblue--base, @shade-80), @desat-80);
+@lightblue--90  : desaturate(shade(@sixty__lightblue--base, @shade-90), @desat-90);
+@lightblue--100 : desaturate(shade(@sixty__lightblue--base, @shade-100), @desat-100);
+
+@lightblue: @sixty__lightblue--base @fifty__lightblue--base;
+
+// Cyan
+
+@cyan--10  : desaturate(tint(@fifty__cyan--base, @tint-10), @desat-10);
+@cyan--20  : desaturate(tint(@fifty__cyan--base, @tint-20), @desat-20);
+@cyan--30  : desaturate(tint(@fifty__cyan--base, @tint-30), @desat-30);
+@cyan--40  : desaturate(tint(@fifty__cyan--base, @tint-40), @desat-40);
+@cyan--50  : desaturate(tint(@fifty__cyan--base, 0%), 0%);
+@cyan--60  : desaturate(shade(@sixty__cyan--base, 0%), 0%);
+@cyan--70  : desaturate(shade(@sixty__cyan--base, @shade-70), @desat-70);
+@cyan--80  : desaturate(shade(@sixty__cyan--base, @shade-80), @desat-80);
+@cyan--90  : desaturate(shade(@sixty__cyan--base, @shade-90), @desat-90);
+@cyan--100 : desaturate(shade(@sixty__cyan--base, @shade-100), @desat-100);
+
+@cyan: @sixty__cyan--base @fifty__cyan--base;
+
+// Teal
+
+@teal--10  : desaturate(tint(@fifty__teal--base, @tint-10), @desat-10);
+@teal--20  : desaturate(tint(@fifty__teal--base, @tint-20), @desat-20);
+@teal--30  : desaturate(tint(@fifty__teal--base, @tint-30), @desat-30);
+@teal--40  : desaturate(tint(@fifty__teal--base, @tint-40), @desat-40);
+@teal--50  : desaturate(tint(@fifty__teal--base, 0%), 0%);
+@teal--60  : desaturate(shade(@sixty__teal--base, 0%), 0%);
+@teal--70  : desaturate(shade(@sixty__teal--base, @shade-70), @desat-70);
+@teal--80  : desaturate(shade(@sixty__teal--base, @shade-80), @desat-80);
+@teal--90  : desaturate(shade(@sixty__teal--base, @shade-90), @desat-90);
+@teal--100 : desaturate(shade(@sixty__teal--base, @shade-100), @desat-100);
+
+@teal: @sixty__teal--base @fifty__teal--base;
+
+// Green
+
+@green--10  : desaturate(tint(@fifty__green--base, @tint-10), @desat-10);
+@green--20  : desaturate(tint(@fifty__green--base, @tint-20), @desat-20);
+@green--30  : desaturate(tint(@fifty__green--base, @tint-30), @desat-30);
+@green--40  : desaturate(tint(@fifty__green--base, @tint-40), @desat-40);
+@green--50  : desaturate(tint(@fifty__green--base, 0%), 0%);
+@green--60  : desaturate(shade(@sixty__green--base, 0%), 0%);
+@green--70  : desaturate(shade(@sixty__green--base, @shade-70), @desat-70);
+@green--80  : desaturate(shade(@sixty__green--base, @shade-80), @desat-80);
+@green--90  : desaturate(shade(@sixty__green--base, @shade-90), @desat-90);
+@green--100 : desaturate(shade(@sixty__green--base, @shade-100), @desat-100);
+
+@green: @sixty__green--base @fifty__green--base;
+
+// Light Green
+
+@lightgreen--10  : desaturate(tint(@fifty__lightgreen--base, @tint-10), @desat-10);
+@lightgreen--20  : desaturate(tint(@fifty__lightgreen--base, @tint-20), @desat-20);
+@lightgreen--30  : desaturate(tint(@fifty__lightgreen--base, @tint-30), @desat-30);
+@lightgreen--40  : desaturate(tint(@fifty__lightgreen--base, @tint-40), @desat-40);
+@lightgreen--50  : desaturate(tint(@fifty__lightgreen--base, 0%), 0%);
+@lightgreen--60  : desaturate(shade(@sixty__lightgreen--base, 0%), 0%);
+@lightgreen--70  : desaturate(shade(@sixty__lightgreen--base, @shade-70), @desat-70);
+@lightgreen--80  : desaturate(shade(@sixty__lightgreen--base, @shade-80), @desat-80);
+@lightgreen--90  : desaturate(shade(@sixty__lightgreen--base, @shade-90), @desat-90);
+@lightgreen--100 : desaturate(shade(@sixty__lightgreen--base, @shade-100), @desat-100);
+
+@lightgreen: @sixty__lightgreen--base @fifty__lightgreen--base;
+
+// Lime
+
+@lime--10  : desaturate(tint(@fifty__lime--base, @tint-10), @desat-10);
+@lime--20  : desaturate(tint(@fifty__lime--base, @tint-20), @desat-20);
+@lime--30  : desaturate(tint(@fifty__lime--base, @tint-30), @desat-30);
+@lime--40  : desaturate(tint(@fifty__lime--base, @tint-40), @desat-40);
+@lime--50  : desaturate(tint(@fifty__lime--base, 0%), 0%);
+@lime--60  : desaturate(shade(@sixty__lime--base, 0%), 0%);
+@lime--70  : desaturate(shade(@sixty__lime--base, @shade-70), @desat-70);
+@lime--80  : desaturate(shade(@sixty__lime--base, @shade-80), @desat-80);
+@lime--90  : desaturate(shade(@sixty__lime--base, @shade-90), @desat-90);
+@lime--100 : desaturate(shade(@sixty__lime--base, @shade-100), @desat-100);
+
+@lime: @sixty__lime--base @fifty__lime--base;
+
+// Yellow
+
+@yellow--10  : desaturate(tint(@fifty__yellow--base, @tint-10), @desat-10);
+@yellow--20  : desaturate(tint(@fifty__yellow--base, @tint-20), @desat-20);
+@yellow--30  : desaturate(tint(@fifty__yellow--base, @tint-30), @desat-30);
+@yellow--40  : desaturate(tint(@fifty__yellow--base, @tint-40), @desat-40);
+@yellow--50  : desaturate(tint(@fifty__yellow--base, 0%), 0%);
+@yellow--60  : desaturate(shade(@sixty__yellow--base, 0%), 0%);
+@yellow--70  : desaturate(shade(@sixty__yellow--base, @shade-70), @desat-70);
+@yellow--80  : desaturate(shade(@sixty__yellow--base, @shade-80), @desat-80);
+@yellow--90  : desaturate(shade(@sixty__yellow--base, @shade-90), @desat-90);
+@yellow--100 : desaturate(shade(@sixty__yellow--base, @shade-100), @desat-100);
+
+@yellow: @sixty__yellow--base @fifty__yellow--base;
+
+// Amber
+
+@amber--10  : desaturate(tint(@fifty__amber--base, @tint-10), @desat-10);
+@amber--20  : desaturate(tint(@fifty__amber--base, @tint-20), @desat-20);
+@amber--30  : desaturate(tint(@fifty__amber--base, @tint-30), @desat-30);
+@amber--40  : desaturate(tint(@fifty__amber--base, @tint-40), @desat-40);
+@amber--50  : desaturate(tint(@fifty__amber--base, 0%), 0%);
+@amber--60  : desaturate(shade(@sixty__amber--base, 0%), 0%);
+@amber--70  : desaturate(shade(@sixty__amber--base, @shade-70), @desat-70);
+@amber--80  : desaturate(shade(@sixty__amber--base, @shade-80), @desat-80);
+@amber--90  : desaturate(shade(@sixty__amber--base, @shade-90), @desat-90);
+@amber--100 : desaturate(shade(@sixty__amber--base, @shade-100), @desat-100);
+
+@amber: @sixty__amber--base @fifty__amber--base;
+
+// Orange
+
+@orange--10  : desaturate(tint(@fifty__orange--base, @tint-10), @desat-10);
+@orange--20  : desaturate(tint(@fifty__orange--base, @tint-20), @desat-20);
+@orange--30  : desaturate(tint(@fifty__orange--base, @tint-30), @desat-30);
+@orange--40  : desaturate(tint(@fifty__orange--base, @tint-40), @desat-40);
+@orange--50  : desaturate(tint(@fifty__orange--base, 0%), 0%);
+@orange--60  : desaturate(shade(@sixty__orange--base, 0%), 0%);
+@orange--70  : desaturate(shade(@sixty__orange--base, @shade-70), @desat-70);
+@orange--80  : desaturate(shade(@sixty__orange--base, @shade-80), @desat-80);
+@orange--90  : desaturate(shade(@sixty__orange--base, @shade-90), @desat-90);
+@orange--100 : desaturate(shade(@sixty__orange--base, @shade-100), @desat-100);
+
+@orange: @sixty__orange--base @fifty__orange--base;
+
+// Deep Orange
+
+@deeporange--10  : desaturate(tint(@fifty__deeporange--base, @tint-10), @desat-10);
+@deeporange--20  : desaturate(tint(@fifty__deeporange--base, @tint-20), @desat-20);
+@deeporange--30  : desaturate(tint(@fifty__deeporange--base, @tint-30), @desat-30);
+@deeporange--40  : desaturate(tint(@fifty__deeporange--base, @tint-40), @desat-40);
+@deeporange--50  : desaturate(tint(@fifty__deeporange--base, 0%), 0%);
+@deeporange--60  : desaturate(shade(@sixty__deeporange--base, 0%), 0%);
+@deeporange--70  : desaturate(shade(@sixty__deeporange--base, @shade-70), @desat-70);
+@deeporange--80  : desaturate(shade(@sixty__deeporange--base, @shade-80), @desat-80);
+@deeporange--90  : desaturate(shade(@sixty__deeporange--base, @shade-90), @desat-90);
+@deeporange--100 : desaturate(shade(@sixty__deeporange--base, @shade-100), @desat-100);
+
+@deeporange: @sixty__deeporange--base @fifty__deeporange--base;
+
+// Brown
+
+@brown--10  : desaturate(tint(@fifty__brown--base, @tint-10), @desat-10);
+@brown--20  : desaturate(tint(@fifty__brown--base, @tint-20), @desat-20);
+@brown--30  : desaturate(tint(@fifty__brown--base, @tint-30), @desat-30);
+@brown--40  : desaturate(tint(@fifty__brown--base, @tint-40), @desat-40);
+@brown--50  : desaturate(tint(@fifty__brown--base, 0%), 0%);
+@brown--60  : desaturate(shade(@sixty__brown--base, 0%), 0%);
+@brown--70  : desaturate(shade(@sixty__brown--base, @shade-70), @desat-70);
+@brown--80  : desaturate(shade(@sixty__brown--base, @shade-80), @desat-80);
+@brown--90  : desaturate(shade(@sixty__brown--base, @shade-90), @desat-90);
+@brown--100 : desaturate(shade(@sixty__brown--base, @shade-100), @desat-100);
+
+@brown: @sixty__brown--base @fifty__brown--base;
+
+// Grey
+
+// @grey--10  : hsl(0, 0%, 97%);
+// @grey--20  : hsl(0, 0%, 92%);
+// @grey--30  : hsl(0, 0%, 87%);
+// @grey--40  : hsl(0, 0%, 82%);
+// @grey--50  : tint(@fifty__grey--base, 0%);
+// @grey--60  : shade(@sixty__grey--base, 0%);
+// @grey--70  : #2A2A2A; 
+// @grey--80  : #202020; 
+// @grey--90  : #141414; 
+// @grey--100 : #0A0A0A; 
+
+@grey--10  : tint(@fifty__grey--base, @tint-10);
+@grey--20  : tint(@fifty__grey--base, @tint-20);
+@grey--30  : tint(@fifty__grey--base, @tint-30);
+@grey--40  : tint(@fifty__grey--base, @tint-40);
+@grey--50  : tint(@fifty__grey--base, 0%);
+@grey--60  : shade(@sixty__grey--base, 0%);
+@grey--70  : shade(@sixty__grey--base, @shade-70);
+@grey--80  : shade(@sixty__grey--base, @shade-80);
+@grey--90  : shade(@sixty__grey--base, @shade-90);
+@grey--100 : shade(@sixty__grey--base, @shade-100);
+
+@grey: @sixty__grey--base @fifty__grey--base;
+
+// BW
+
+@white: #FFFFFF;
+@black: #000000;
+
+@bw : @black @white;
+@wb : @white @black;

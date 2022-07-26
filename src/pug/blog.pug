@@ -1,0 +1,102 @@
+extends _templates/layout.pug
+
+block prepend title
+   - var title = "Blog"
+
+block append styles
+   link(rel="stylesheet" type="text/css" href="css/blog.css")
+
+block content
+   main
+      header 
+         h1(title="Hruška Design" aria-label="Hruška Design")
+            a(href="index.html")
+               span.name hruska
+               span.domain design
+               //span.dot _
+
+         nav
+            a(href="index.html") Work
+            a(href="" active) Blog
+      articles
+         if mvb.articles.length > 0
+            each year in mvb.groupedArticles.byYear
+               year-group
+                  h2= year.year
+                  ul
+                     each a in year.articles
+                        - var options = { day: '2-digit', month: 'short' };         
+                        li
+                           article
+                              h3 
+                                 a(href=`articles/${a.id}.html`)= a.title
+                              date= a.date.toLocaleDateString("en", options)
+         else
+            div
+               p.no-articles No articles, yet.
+               p But hey, I'll keep them coming soon.
+      a(href="atom.xml").subscribe-link Subscribe
+      
+      //articles
+         each tag, name in mvb.groupedArticles.byTag
+            year-group
+               h2= name
+               ul
+                  each a in tag 
+                     li
+                        article
+                           h3 
+                              a(href=`articles/${a.id}.html`)= a.title
+                           date= a.date.toLocaleDateString("cs-CS", options)
+
+block append body-scripts
+   //- script.
+      if mvb.articles.length > 0
+         ninja.data = [
+            {
+               id: 'index',
+               title: 'Práce',
+               handler: () => {
+                  // simple handler
+                  window.location.href = "index.html";
+               },
+            },
+            {
+               id: 'Articles',
+               title: 'Články',
+               children: [!{JSON.stringify(mvb.articles[0].id)}, !{JSON.stringify(mvb.articles[1].id)}, , !{JSON.stringify(mvb.articles[2].id)}],
+               handler: () => {
+                  // open menu if closed. Because you can open directly that menu from it's hotkey
+                  ninja.open({ parent: 'Articles' });
+                  // if menu opened that prevent it from closing on select that action, no need if you don't have child actions
+                  return {keepOpen: true};
+               },
+            },
+            {
+               id: !{JSON.stringify(mvb.articles[0].id)},
+               title: !{JSON.stringify(mvb.articles[0].title)},
+               parent: 'Articles',
+               handler: () => {
+                  // simple handler
+                  window.location.href = "articles/" + !{JSON.stringify(mvb.articles[0].id)} + ".html";
+               },
+            },
+            {
+               id: !{JSON.stringify(mvb.articles[1].id)},
+               title: !{JSON.stringify(mvb.articles[1].title)},
+               parent: 'Articles',
+               handler: () => {
+                  // simple handler
+                  window.location.href = "articles/" + !{JSON.stringify(mvb.articles[1].id)} + ".html";
+               },
+            },
+            {
+               id: !{JSON.stringify(mvb.articles[2].id)},
+               title: !{JSON.stringify(mvb.articles[2].title)},
+               parent: 'Articles',
+               handler: () => {
+                  // simple handler
+                  window.location.href = "articles/" + !{JSON.stringify(mvb.articles[2].id)} + ".html";
+               },
+            },
+         ];

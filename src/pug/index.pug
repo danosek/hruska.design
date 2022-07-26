@@ -1,0 +1,308 @@
+extends _templates/layout.pug
+
+
+block prepend title
+    title Daniel Hruška
+
+block append styles
+    link(rel="stylesheet" type="text/css" href="css/homepage.css")
+
+block content
+    main
+
+        header 
+            h1(title="Hruška Design" aria-label="Hruška Design")
+                a(href="index.html")
+                    span.name hruska
+                    span.domain design
+                    //span.dot _
+
+            nav
+                a(href="" active) Work
+                a(href="blog.html") Blog
+
+        //divider
+
+        section
+            p.bio-me
+                span.p-text(lang="cs") Ahoj 
+                br
+                span.p-text My name is Daniel 
+                br
+                span #[span(class="pp-text") I'm a Czech designer]
+                br
+                span #[span(class="pp-text") Software is my canvas]#[span(class="ss-text") _]
+                br
+                span 
+            //- <svg viewBox="0 0 220 120" x="0px" y="0px" xmlns="http://www.w3.org/2000/svg">
+            //-     <text x="125" y="0" text-anchor="middle" stroke="var(--site-bg)" stroke-width="3" paint-order="stroke fill">
+            //-         <tspan x="53%" dy="1em">Ahoj,</tspan>
+            //-         <tspan x="53%" dy="1.5em">Jmenuju se Dan</tspan>
+            //-         <tspan x="52%" dy="1.5em">Pracuju jako designer</tspan>
+            //-         <tspan x="50%" dy="1.5em">Software je můj canvas</tspan>
+            //-     </text>
+            //- </svg>
+
+        section#projects
+            h2 Projects 
+
+            projects
+                project
+                    project-content
+                        h3 Port
+                        p
+                            //-| Pomáhá závislým hráčům lépe kontrolovat finance a čas strávený nad hraním. Umožňuje nastavit množství volných peněz na daný měsíc a sledovat jejich stav pomocí grafů.
+                            | Helps additcted gamers to better control their finances and time spent on gaming. Port allows to set a monthly budget and keep an eye on it with simple charts. 
+                            a(href="https://www.nabertekurz.cz/port" target = "_blank") Learn more
+
+                    project-shadow
+
+                project
+                    project-content
+                        h3 WD Driver
+                        p
+                            //-| Zaznamenává služební i soukromé jízdy ve spojení s mobilní Bluetooth jednotkou umístěné přímo ve vozidle. Aplikace je napojena na robustní správu autoparku Webdispečing. 
+                            | Logs business and private trips while connected to mobile Bluetooth unit mounted on a car. WD Driver is integrated into robust Webdispečing fleet management. 
+                            a(href="https://www.webdispecink.cz/cz/unikatni-vlastnosti-webdispecinku/wd-driver/" target = "_blank") Learn more
+                    project-shadow
+
+                project
+                    project-content
+                        h3 SIMS Mobile
+                        p
+                            //- | Monitoruje situaci v domě nebo komplexu budov. Aplikace komunikuje se základnou, na kterou jsou napojeny bezpečnostní prvky jako alarm při vloupání, zavírání dveří a oken, a jiné. 
+                            | Monitors a situation around a house or a building complex. SIMS Mobile communicates with a base on which are connected devices like alarms, automatic door and window openers, etc. 
+                            a(href="https://www.simsweb.eu" target = "_blank") Learn more
+                    project-shadow
+
+                project
+                    project-content
+                        h3 MultiWeb Design
+                        p
+                            //-| Ručně vytvořená dokumentace interního design systemu pro HTML 5 webového klienta společnosti TESCO&nbsp;SW, ve které momentálně pracuji. #[a(href="https://www.behance.net/petrbrenek" target="_blank") Petr Břenek] pak vytvořil izometrické ilustrace. 
+                            | Handmade design system and its documentation of HTML5 web client TESCO&nbsp;SW company I work for. #[a(href="https://www.behance.net/petrbrenek" target="_blank") Petr Břenek] created and animated those funky isometric illustrations. 
+                            a(href = "https://teaf.tescosw.cz/mw/design/index.html", target = "_blank") Learn more
+                    project-shadow
+
+                project
+                    project-content
+                        h3 Your project?
+                        p 
+                            a(href="mailto: daniel.hruska@me.com" target="_blank" rel="noopener noreferrer") Let's get in touch
+                            span  and create something exceptional.
+                        //- p 
+                        //-     | Co od naší spolupráce můžeš očekávat?
+                        //-     br
+                        //-     |↓
+                    project-shadow
+
+            #coop
+
+                h3 What can you expect form our cooperation?
+
+                coop
+                    coop-item
+                        coop-title(role="heading" aria-level="4") Define
+                        //-coop-text.
+                            V klidu si spolu sedneme.
+                            Sepíšeme, co od tvého projektu očekáváš, jaký je jeho cíl,
+                            kdo by měli být jeho uživatelé a proč by jej měli používat.
+                        coop-text.
+                            We'll meet in person or make a call. Both ways are completely fine.
+                            We'll write down expectations of your project, what the goals are, who are potentional users
+                            and why should they us it. If you already have an idea, we're on track.
+
+
+                    coop-item
+                        coop-title(role="heading" aria-level="4") Refine
+                        //-coop-text.
+                            Následně vyletí z našich hlav všelijaké nápady.
+                            Některé budou nenápadné, avšak později z nich může vznikout klíčová vlastnost a jádro celého projektu.
+                            Musíme si zapsat prostě vše. Poté vše proškrtáme, ponecháme stěžejní funkcionalitu a zbytek uložíme do šuplíku.
+                        coop-text.
+                            Various thoughts will spring up.
+                            Some of them will be anticipated but some quiet and subtle, but important as much.
+                            We have to note all of them. Then we cross out everyting except truly needed features.
+                            The rest we'll keep for next updates.
+
+                    coop-item
+                        coop-title(role="heading" aria-level="4") Materialize
+                        //-coop-text.
+                            Počáteční vize je abstraktní, nyní ji musíme zhmotnit.
+                            Stačí začít črtat a kreativní tok myšlenek na sebe nenechá dlouho čekat.
+                            Jakmile dáme některým skicám zelenou, zdigitalizuju je do wireframu.
+                            Nebo v případě webové stránky rovnou vytvořím HTML prototyp.
+                        coop-text.
+                            All of our ideas still remain abstract.
+                            We'll start to draw first sketches and the creative part begins.
+                            Things which we will give a green light, I materialize to digital wireframes.
+                            In case of website, I can make HTML prototype stright away.
+
+
+                        //- coop-title(role="heading" aria-level="4") Testování
+                        //- coop-text.
+                        //-     Dvakrát měř, jednou řež. Než vše pustíme do světa, měl by si tvůj produkt někdo osahat.
+                        //-     Vytvoříme několik scénářů a necháme uživatele dojít k cíli.
+                        //-     Tím se oba ujistíme v našem výtvoru, či naopak odhalíme nedostatky, které eliminujeme ještě během vývoje.
+
+                    coop-item
+                        coop-title(role="heading" aria-level="4") Finalize
+                        //--coop-text.
+                            Teď už jen dát našemu výtvoru duši.
+                            Barvy, typografie, ikony, obrázky… vše musí být dokonalé.
+                            U iOS a Android aplikace nakreslím vše ve Sketchi, u webových stránek přetavím HTML prototyp na finální produkt.
+                        coop-text.
+                            Now we have to give our piece of work a soul.
+                            Colors, typography, icons, images – all of it has to be just right.
+                            I design iOS and Android apps in well known tool Sketch.
+                            I can develop static websites or make a template for your developer.
+
+        divider
+
+        section#blog
+
+            h2 Blog
+
+            if mvb.articles.length > 0
+
+                - var n = 0
+
+                //if mvb.articles[n].lenght > 0
+
+                blog-articles
+                    while n < mvb.articles.length
+                        - var text_truncate = function(str, length, ending) { if (length == null) { length = 100; } if (ending == null) { ending = '…'; } if (str.length > length) { return str.substring(0, length - ending.length) + ending; } else { return str; } };
+                        - var myHTML= mvb.articles[n].content;
+                        - var strippedHtml = myHTML.replace(/<[^>]+>/g, '');
+                        - var tuncText = text_truncate(strippedHtml,280);
+
+                        article
+                            h3
+                                a(href=`articles/${mvb.articles[n].id}.html`)= mvb.articles[n].title
+                            //p= tuncText
+                        - n = n + 1
+
+                    a(href="blog.html") All articles →
+            else
+                blog-articles
+                    div
+                        p.no-articles No articles, yet.
+                        p But hey, I'll keep them coming soon.
+
+        divider
+
+        section#bio
+            h2
+                span About
+
+            div
+                bio-item
+                    bio-year(role="heading" aria-level="3")
+                        span
+                            time(datetime="2014") 2014
+                            span –
+                            span now
+                    bio-text
+                        p UX/UI Designer @ TESCO SW
+                    bio-year(role="heading" aria-level="3")
+                        span
+                            time(datetime="2014") 2014
+                    bio-text
+                        p Consultant @ TESCO SW
+                        //-p Ihned po ukončení studia jsem nastoupil jako konzultant v TESCO&nbsp;SW, kde jsem postupně přešel na pozici designera.
+                        p Right after graduation I've started as consulatant at TESCO&nbsp;SW.
+                    bio-year(role="heading" aria-level="3")
+                        span
+                            time(datetime="2014") 2014
+                    bio-text
+                        //- p Udělen titul Mgr. v oboru System, Service, Management and Engineering @ FI&nbsp;MUNI
+                        p Master's degree in System, Service, Management and Engineering @ FI&nbsp;MUNI
+                    bio-year(role="heading" aria-level="3")
+                        span
+                            time(datetime="2012") 2012
+                    bio-text
+                        //- p Udělen titul Bc. v oboru Aplikovaná informatika @ FI MUNI
+                        p Bachelor's degree in Applied Informatics @ FI&nbsp;MUNI
+                        //-p.
+                            Vypadá to velmi profesionálně, ale čistě mezi námi…
+                            nějakým způsobem jsem přežil vysokoškolskou matematiku, důkazy, výrokovou logiku,
+                            psaní pseudoalgoritmů na papír, automaty, gramatiky a všechny podobné nástrahy.
+                            Opravdu jsem netušil, co ze mě bude.
+                        p.
+                            The study hasn't exactly matched my expectations. Math, proofs, propositional calculus, automata, grammars, etc.
+                        //-p.
+                            Ve světě IT jsem ale chtěl zůstat, začal jsem chodit na několik zajímavých předmětů,
+                            které se věnovaly návrhu UI, typografii a grafickému designu. A tak moje designérství započalo.
+                        p.
+                            But I did it, because I've wanted to stay in IT world. I've picked few interesting courses like designing UI, typography, history of graphic design. And that's where my designing has begun.
+                    contact
+                        photo
+                            img(src="img/daniel-hruska.jpeg")
+                            shadow(elevation="top")
+                            shadow(elevation="bottom")
+
+                        name Daniel Hruška
+                        a(href="mailto:daniel.hruska@me.com") daniel.hruska@me.com
+    
+    //-footer
+        p Tato stránka nevyžaduje žádné čukís.
+        p 
+            span#copyright 
+                <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+        //contact
+
+            address
+                div Vražné 142
+                div 74235 Vražné
+                div IČO: 08248052
+                div Nejsem plátce DPH
+//- block append body-scripts
+    script.
+        ninja.data = [
+            {
+                id: 'Blog',
+                title: 'Blog',
+                handler: () => {
+                    // simple handler
+                    window.location.href = "blog.html";
+                },
+            },
+            {
+                id: 'Articles',
+                title: 'Články',
+                children: [!{JSON.stringify(mvb.articles[0].id)}, !{JSON.stringify(mvb.articles[1].id)}, , !{JSON.stringify(mvb.articles[2].id)}],
+                handler: () => {
+                    // open menu if closed. Because you can open directly that menu from it's hotkey
+                    ninja.open({ parent: 'Articles' });
+                    // if menu opened that prevent it from closing on select that action, no need if you don't have child actions
+                    return {keepOpen: true};
+                },
+            },
+            {
+                id: !{JSON.stringify(mvb.articles[0].id)},
+                title: !{JSON.stringify(mvb.articles[0].title)},
+                parent: 'Articles',
+                handler: () => {
+                    // simple handler
+                    window.location.href = "articles/" + !{JSON.stringify(mvb.articles[0].id)} + ".html";
+                },
+            },
+            {
+                id: !{JSON.stringify(mvb.articles[1].id)},
+                title: !{JSON.stringify(mvb.articles[1].title)},
+                parent: 'Articles',
+                handler: () => {
+                    // simple handler
+                    window.location.href = "articles/" + !{JSON.stringify(mvb.articles[1].id)} + ".html";
+                },
+            },
+            {
+                id: !{JSON.stringify(mvb.articles[2].id)},
+                title: !{JSON.stringify(mvb.articles[2].title)},
+                parent: 'Articles',
+                handler: () => {
+                    // simple handler
+                    window.location.href = "articles/" + !{JSON.stringify(mvb.articles[2].id)} + ".html";
+                },
+            },
+        ];

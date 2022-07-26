@@ -1,0 +1,178 @@
+- var text_truncate = function(str, length, ending) { if (length == null) { length = 100; } if (ending == null) { ending = '…'; } if (str.length > length) { return str.substring(0, length - ending.length) + ending; } else { return str; } };
+- var myHTML= mvb.article.content;
+- var strippedHtml = myHTML.replace(/<[^>]+>/g, '');
+- var tuncText = text_truncate(strippedHtml,140);
+
+doctype html
+
+html
+   head
+      title Daniel Hruška: #{mvb.article.title}
+      meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+      meta(http-equiv="X-UA-Compatible" content="IE=edge")
+      meta(name="description" content=`${tuncText}`)
+      meta(name="author" content="Daniel Hruška")
+      meta(property="og:site_name" content="Daniel Hruška")
+      meta(property="og:title" content=`${mvb.article.title}`)
+      meta(property="og:description" content=`${tuncText}`)
+      meta(property="og:url" content=`https://hruska.design/articles/${mvb.article.id}.html`)
+      meta(name="color-scheme" content="dark light")
+      link(rel="stylesheet" type="text/css" href="../css/index.css")
+      link(rel="stylesheet" type="text/css" href="../css/article.css")
+      link(rel="icon" href="../img/favicon-lt.svg" type="image/svg+xml" media="(prefers-color-scheme: light)")
+      link(rel="icon" href="../img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)")
+      link(rel="mask-icon" href="../img/favicon.svg" type="image/svg+xml" color="#F48525" media="(prefers-color-scheme: light)")
+      link(rel="mask-icon" href="../img/favicon.svg" type="image/svg+xml" color="#D76909" media="(prefers-color-scheme: dark)")
+      //-script(type="module" src="https://unpkg.com/ninja-keys?module")
+
+      // Global site tag (gtag.js) - Google Analytics
+      script(async src="https://www.googletagmanager.com/gtag/js?id=G-6JLXDJ81CL")
+      script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6JLXDJ81CL');
+
+   body
+      //-ninja-keys.dark(placeholder="Přejít na…" goBackHotkey="backspace,left", hideBreadcrumbs, noAutoLoadMdIcons)
+         div(slot="footer")
+      main
+         header 
+            h1(title="Hruška Design" aria-label="Hruška Design")
+                  a(href="../index.html")
+                     span.name hruska
+                     span.domain design
+                     //span.dot _
+
+            nav
+                  a(href="../index.html") Work
+                  a(href="../blog.html") Blog
+         //- breadcrumbs(role="navigation" aria-label="Main")
+         //-    breadcrumb
+         //-       a(href="../index.html") hruskadesign_
+         //-    breadcrumb
+         //-       a(href="../blog.html") Blog
+         //-    breadcrumb
+         //-       span= mvb.article.title
+         article
+            - var options = { day: '2-digit', month: 'long', year: '2-digit' }; 
+
+            header
+               h1= mvb.article.title
+
+            date= mvb.article.date.toLocaleDateString("en", options)
+
+            article-content
+               != mvb.article.content
+
+         footer
+            sibling-articles
+               if (mvb.article.previousArticle)
+                  p 
+                     span Previous article
+                     a(href=`${mvb.article.previousArticle.id}.html`)= mvb.article.previousArticle.title
+
+               else
+                  p
+                     span This is the first article
+                     a(href="../blog.html") All articles
+
+               if (mvb.article.nextArticle)
+                  p 
+                     span Next article
+                     a(href=`${mvb.article.nextArticle.id}.html`)= mvb.article.nextArticle.title
+               else
+                  p
+                     span This is the last article
+                     a(href="../blog.html") All articles
+            a(href="../atom.xml").subscribe-link Subscribe
+            //- if (mvb.article.previousArticle && mvb.article.nextArticle) 
+            //-    p
+            //-       span ..
+            //-       a(href="../blog.html") Všechny články
+
+            //- breadcrumbs(role="navigation" aria-label="Main")
+            //-    breadcrumb
+            //-       a(href="../index.html") hruskadesign_
+            //-    breadcrumb
+            //-       a(href="../blog.html") Blog
+            //-    breadcrumb
+            //-       span= mvb.article.title
+      script.
+         const anchors = document.querySelectorAll('article a');
+         anchors.forEach((a) => {
+            a.setAttribute('target', '__blank');
+            a.setAttribute('rel', 'noopener noreferrer');
+            console.log("link");
+         });
+
+      //-script.
+         const ninja = document.querySelector('ninja-keys');
+
+         ninja.data = [
+            {
+                id: 'index',
+                title: 'Domů',
+                handler: () => {
+                    // simple handler
+                    window.location.href = "../index.html";
+                },
+            },
+            {
+               id: 'Blog',
+               title: 'Zpět na blog',
+               handler: () => {
+                  // simple handler
+                  window.location.href = "../blog.html";
+               },
+            },
+            {
+               id: !{JSON.stringify(mvb.articles[0].id)},
+               title: !{JSON.stringify(mvb.articles[0].title)},
+               parent: 'Articles',
+               handler: () => {
+                  // simple handler
+                  window.location.href = !{JSON.stringify(mvb.articles[0].id)} + ".html";
+               },
+            },
+            {
+               id: 'Articles',
+               title: 'Články',
+               children: [!{JSON.stringify(mvb.articles[0].id)}, !{JSON.stringify(mvb.articles[1].id)}, , !{JSON.stringify(mvb.articles[2].id)}],
+               handler: () => {
+                  // open menu if closed. Because you can open directly that menu from it's hotkey
+                  ninja.open({ parent: 'Articles' });
+                  // if menu opened that prevent it from closing on select that action, no need if you don't have child actions
+                  return {keepOpen: true};
+               },
+            },
+            {
+               id: !{JSON.stringify(mvb.articles[0].id)},
+               title: !{JSON.stringify(mvb.articles[0].title)},
+               parent: 'Articles',
+               handler: () => {
+                  // simple handler
+                  window.location.href = !{JSON.stringify(mvb.articles[0].id)} + ".html";
+               },
+            },
+            {
+               id: !{JSON.stringify(mvb.articles[1].id)},
+               title: !{JSON.stringify(mvb.articles[1].title)},
+               parent: 'Articles',
+               handler: () => {
+                  // simple handler
+                  window.location.href = !{JSON.stringify(mvb.articles[1].id)} + ".html";
+               },
+            },
+            {
+               id: !{JSON.stringify(mvb.articles[2].id)},
+               title: !{JSON.stringify(mvb.articles[2].title)},
+               parent: 'Articles',
+               handler: () => {
+                  // simple handler
+                  window.location.href = + !{JSON.stringify(mvb.articles[2].id)} + ".html";
+               },
+            },
+         ];

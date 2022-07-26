@@ -1,0 +1,95 @@
+main > header {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+    height: var(--header-height);
+    position: -webkit-sticky;
+    position: sticky;
+    top: -1rem;
+    z-index: 100;
+    //background-image: linear-gradient(to bottom, var(--site-bg) 50%, transparent);
+    
+    @media only screen and (min-width: 900px) {
+        top: -2rem;
+    }
+    
+    
+    * {
+        font-family: var(--font-stack-headings) !important;
+        line-height: normal;
+    }
+
+    &, h1 {
+        .font-base();
+    }
+
+    // @media screen and (min-width: 350px) {
+    //     &, h1 {
+    //         .font-l();
+    //     }
+    // }
+    
+    h1 {
+        white-space: nowrap;
+        color: var(--primary);
+        margin: 0;
+        background-color: var(--site-bg);  
+
+        span {
+            display: inline-block;
+        }
+        
+        .name {
+            padding-inline-end: 0.1ch;
+        }
+
+        .domain {
+
+            color: var(--secondary);
+        }
+        
+        .dot {
+            color: var(--secondary);
+            padding-inline-start: 0ch;
+            //font-size: var(--font-size-l);
+            // text-transform: uppercase;
+
+        }
+    }
+
+    nav {
+        margin-inline-start: 1rem;
+        display: flex;
+        gap: inherit;
+        background-color: var(--site-bg);
+        //margin-block-start: var(--edge);
+
+        // @media screen and (min-width: 350px) {
+        //     margin-block-start: var(--section-gap);
+        // }
+        
+        a {
+            text-decoration-line: none;
+            display: inline-block;
+            text-underline-offset: 0.5rem;
+            text-transform: lowercase;
+            text-decoration: none !important;
+
+            &[active] {
+                //background-color: var(--link-bg);
+                // --link-color: var(--secondary);
+                // --link-bg: var(--secondary-a);
+                --link-decoration-color: var(--text-primary-color);
+                //--alpha: 0.4;
+
+                &::after {
+                    content: "_"
+                }
+
+                &, &:hover {
+                    text-decoration-line: underline;
+                }
+            }
+        }
+    }
+}

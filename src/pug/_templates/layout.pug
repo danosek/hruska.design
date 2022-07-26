@@ -1,0 +1,69 @@
+//- layout.pug
+
+doctype html
+
+html(lang="en")
+  head
+
+    //- Outdated browser detection
+    //- <script src="./js/outdated-browser-rework.js" type="application/javascript"></script>
+    //- script.
+    //-   outdatedBrowserRework({
+    //-     browserSupport: {
+    //-       'Chrome': 58,
+    //-       'Edge': 16,
+    //-       'Safari': 10.1,
+    //-       'Mobile Safari': 10.3,
+    //-       'Firefox': 54,
+    //-       'Opera': 44,
+    //-       'IE': false
+    //-     },
+    //-     isUnknownBrowserOK: true
+    //-   });
+
+    block title
+      title Daniel Hruška: #{title}
+
+    block meta
+      meta(charset="utf-8")
+      meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
+      meta(http-equiv="X-UA-Compatible" content="IE=edge")
+      meta(name="description" content="User Experience Designer a User Interface Designer se zkušenostmi s iOS, Android, HTML a CSS. Pojďme spolu vytvořit něco výjimečného.")
+      meta(name="author" content="Daniel Hruška")
+      meta(property="og:site_name" content="Daniel Hruška")
+      meta(property="og:title" content="Daniel Hruška")
+      meta(property="og:description" content="Ahoj. My name is Daniel. I'm a Czech designer. Software is my canvas.")
+      meta(property="og:url" content="http://hruska.design/")
+      meta(property="og:image" content="http://hruska.design/img/daniel-hruska.jpeg")
+      meta(property="og:image:width" content="1201")
+      meta(property="og:image:height" content="630")
+      meta(name="color-scheme" content="dark light")
+      link(rel="icon" href="img/favicon.svg" type="image/svg+xml")
+      link(rel="icon" href="../img/favicon-lt.svg" type="image/svg+xml" media="(prefers-color-scheme: light)")
+      link(rel="icon" href="../img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)")
+      link(rel="mask-icon" href="../img/favicon.svg" type="image/svg+xml" color="#F48525" media="(prefers-color-scheme: light)")
+      link(rel="mask-icon" href="../img/favicon.svg" type="image/svg+xml" color="#D76909" media="(prefers-color-scheme: dark)")
+
+    block styles
+      link(rel="stylesheet" type="text/css" href="css/index.css")
+
+    block scripts
+      //-script(type="module" src="https://unpkg.com/ninja-keys?module")
+      // Global site tag (gtag.js) - Google Analytics
+      script(async src="https://www.googletagmanager.com/gtag/js?id=G-6JLXDJ81CL")
+      script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-6JLXDJ81CL');
+   
+  body
+    //-ninja-keys.dark(placeholder="Přejít na…", goBackHotkey="backspace,left", hideBreadcrumbs, noAutoLoadMdIcons)
+      div(slot="footer")
+
+    block content
+
+    block body-scripts
+      //-script.
+        const ninja = document.querySelector('ninja-keys');
