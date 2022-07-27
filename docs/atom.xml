@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://example.org">
   <id>https://example.org/atom.xml</id>
   <title>Daniel Hruška's Blog</title>
-  <updated>2022-07-26T00:00:00.000Z</updated>
+  <updated>2022-07-27T00:00:00.000Z</updated>
   <link href="/"></link>
   <link rel="self" href="/atom.xml"></link>
   <entry>
@@ -35,7 +35,7 @@
 &lt;h3&gt;Writing&lt;/h3&gt;
 &lt;p&gt;When thinking about a blog, &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; is a must. I’ve been using Markdown for writing and notes more than 10 years. I’ve wanted my blog to be as simple as possible. Just throw &lt;code&gt;.md&lt;/code&gt; files in a folder and make things happen. Thankfully there is &lt;a href=&quot;https://github.com/dennisreimann/gulp-mvb&quot;&gt;gulp-mvb&lt;/a&gt; plugin which is pure gold.&lt;/p&gt;
 &lt;h3&gt;Subscribe&lt;/h3&gt;
-&lt;p&gt;If you’d like to read further articles, you can &lt;a href=&quot;http://localhost:3000/atom.xml&quot;&gt;subscribe to feed&lt;/a&gt; with your favorite RSS reeder. Feed is done by &lt;a href=&quot;https://en.wikipedia.org/wiki/Atom_(web_standard)&quot;&gt;Atom&lt;/a&gt; which is an alternative for RSS.&lt;/p&gt;
+&lt;p&gt;If you’d like to read further articles, you can &lt;a href=&quot;../atom.xml&quot;&gt;subscribe to feed&lt;/a&gt; with your favorite RSS reeder. Feed is done by &lt;a href=&quot;https://en.wikipedia.org/wiki/Atom_(web_standard)&quot;&gt;Atom&lt;/a&gt; which is an alternative for RSS.&lt;/p&gt;
 </content>
   </entry>
 </feed>

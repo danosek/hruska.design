@@ -39,4 +39,4 @@ When thinking about a blog, [Markdown](https://daringfireball.net/projects/markd
 
 ### Subscribe
 
-If you'd like to read further articles, you can [subscribe to feed](http://localhost:3000/atom.xml) with your favorite RSS reeder. Feed is done by [Atom](https://en.wikipedia.org/wiki/Atom_(web_standard)) which is an alternative for RSS.
+If you'd like to read further articles, you can [subscribe to feed](../atom.xml) with your favorite RSS reeder. Feed is done by [Atom](https://en.wikipedia.org/wiki/Atom_(web_standard)) which is an alternative for RSS.
