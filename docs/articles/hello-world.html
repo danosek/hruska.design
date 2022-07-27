@@ -48,6 +48,7 @@ It seems to be a little bit cliché I named the first article “Hello World.”
 <p>English is not my mother language and sometimes you can find weird phrases, word combinations, wrong tenses or other grammar mistakes. I hope everything will be fine with you. My plan for content is no plan. I’ll write down anything what comes in my mind – CSS, Less, HTML, Pug, Sketch or just random thought. In the upcoming months I’ll be starting to learning Blender a Three.js so maybe I’ll post interesting notes form that. But let’s start how I build this page first.</p>
 <h2>Under the hood</h2>
 <p>I’m a designer with skills in HTML and CSS. That said, I’ve decided to stay in these waters and build static website, even with a blog in mind.</p>
+<h3>HTML</h3>
 <p>I use <a href="https://pugjs.org/api/getting-started.html">Pug</a> for generating HTML. What do I like about it?</p>
 <ul>
 <li>Syntax based on indentation. Just tab, tab, tab.</li>
@@ -56,6 +57,7 @@ It seems to be a little bit cliché I named the first article “Hello World.”
 <li>Calling JS methods within Pug file. For example, in template of this article I use <code>toLocaleDateString()</code> for date formatting.</li>
 <li>And of course loops, mixins, variables and other good stuff Pug offers.</li>
 </ul>
+<h3>Styles</h3>
 <p>Styling is done by CSS (shocker). In this case I use <a href="https://lesscss.org">Less</a> as my favorite CSS preprocessor. When I’ve started to learn CSS years ago, company I work for used and is still using Less. So am I. I’ve used <a href="https://sass-lang.com">Sass</a> with SCSS syntax in couple of projects but I didn’t see a reason to switch. Maybe I’ll try Sass with indented syntax, that could be nice. Anyway, what do I like about Less?</p>
 <ul>
 <li>Organizing styles into multiple files</li>
@@ -63,8 +65,10 @@ It seems to be a little bit cliché I named the first article “Hello World.”
 <li>Mixins and variables for not doing the same thing over and over again. Good chunk of variables I need can be now done by pure CSS Custom Properties. That was not the case few years back.</li>
 <li><code>@import (reference)</code> for making variables and mixins available only in certain files without compiling the imported one.</li>
 </ul>
+<h3>Writing</h3>
 <p>When thinking about a blog, <a href="https://daringfireball.net/projects/markdown/">Markdown</a> is a must. I’ve been using Markdown for writing and notes more than 10 years. I’ve wanted my blog to be as simple as possible. Just throw <code>.md</code> files in a folder and make things happen. Thankfully there is <a href="https://github.com/dennisreimann/gulp-mvb">gulp-mvb</a> plugin which is pure gold.</p>
-<p>Everything gets gulp down by… <a href="https://gulpjs.com">Gulp</a> and <a href="https://www.npmjs.com">npm</a>. There are tons of ways how build a website.</p>
+<h3>Subscribe</h3>
+<p>If you’d like to read further articles, you can <a href="http://localhost:3000/atom.xml">subscribe to feed</a> with your favorite RSS reeder. Feed is done by <a href="https://en.wikipedia.org/wiki/Atom_(web_standard)">Atom</a> which is an alternative for RSS.</p>
 
         </article-content>
       </article>

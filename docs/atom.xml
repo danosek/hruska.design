@@ -8,13 +8,14 @@
   <entry>
     <id>hello-world</id>
     <title>Hello World</title>
-    <link href="/undefined/hello-world.html"></link>
-    <updated>2022-07-26T00:00:00.000Z</updated>
+    <link href="/articles/hello-world.html"></link>
+    <updated>2022-07-27T00:00:00.000Z</updated>
     <content type="html">&lt;h2&gt;First words&lt;/h2&gt;
 &lt;p&gt;It seems to be a little bit cliché I named the first article “Hello World.” But you know what – it feels just right on design slash dev related blog. I’ve had a website before but it didn’t have a blog and I didn’t communicate anything except my portfolio. So “Hello” again or “Ahoj” as we say here in Czech Republic.&lt;/p&gt;
 &lt;p&gt;English is not my mother language and sometimes you can find weird phrases, word combinations, wrong tenses or other grammar mistakes. I hope everything will be fine with you. My plan for content is no plan. I’ll write down anything what comes in my mind – CSS, Less, HTML, Pug, Sketch or just random thought. In the upcoming months I’ll be starting to learning Blender a Three.js so maybe I’ll post interesting notes form that. But let’s start how I build this page first.&lt;/p&gt;
 &lt;h2&gt;Under the hood&lt;/h2&gt;
 &lt;p&gt;I’m a designer with skills in HTML and CSS. That said, I’ve decided to stay in these waters and build static website, even with a blog in mind.&lt;/p&gt;
+&lt;h3&gt;HTML&lt;/h3&gt;
 &lt;p&gt;I use &lt;a href=&quot;https://pugjs.org/api/getting-started.html&quot;&gt;Pug&lt;/a&gt; for generating HTML. What do I like about it?&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Syntax based on indentation. Just tab, tab, tab.&lt;/li&gt;
@@ -23,6 +24,7 @@
 &lt;li&gt;Calling JS methods within Pug file. For example, in template of this article I use &lt;code&gt;toLocaleDateString()&lt;/code&gt; for date formatting.&lt;/li&gt;
 &lt;li&gt;And of course loops, mixins, variables and other good stuff Pug offers.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3&gt;Styles&lt;/h3&gt;
 &lt;p&gt;Styling is done by CSS (shocker). In this case I use &lt;a href=&quot;https://lesscss.org&quot;&gt;Less&lt;/a&gt; as my favorite CSS preprocessor. When I’ve started to learn CSS years ago, company I work for used and is still using Less. So am I. I’ve used &lt;a href=&quot;https://sass-lang.com&quot;&gt;Sass&lt;/a&gt; with SCSS syntax in couple of projects but I didn’t see a reason to switch. Maybe I’ll try Sass with indented syntax, that could be nice. Anyway, what do I like about Less?&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Organizing styles into multiple files&lt;/li&gt;
@@ -30,8 +32,10 @@
 &lt;li&gt;Mixins and variables for not doing the same thing over and over again. Good chunk of variables I need can be now done by pure CSS Custom Properties. That was not the case few years back.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;@import (reference)&lt;/code&gt; for making variables and mixins available only in certain files without compiling the imported one.&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3&gt;Writing&lt;/h3&gt;
 &lt;p&gt;When thinking about a blog, &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; is a must. I’ve been using Markdown for writing and notes more than 10 years. I’ve wanted my blog to be as simple as possible. Just throw &lt;code&gt;.md&lt;/code&gt; files in a folder and make things happen. Thankfully there is &lt;a href=&quot;https://github.com/dennisreimann/gulp-mvb&quot;&gt;gulp-mvb&lt;/a&gt; plugin which is pure gold.&lt;/p&gt;
-&lt;p&gt;Everything gets gulp down by… &lt;a href=&quot;https://gulpjs.com&quot;&gt;Gulp&lt;/a&gt; and &lt;a href=&quot;https://www.npmjs.com&quot;&gt;npm&lt;/a&gt;. There are tons of ways how build a website.&lt;/p&gt;
+&lt;h3&gt;Subscribe&lt;/h3&gt;
+&lt;p&gt;If you’d like to read further articles, you can &lt;a href=&quot;http://localhost:3000/atom.xml&quot;&gt;subscribe to feed&lt;/a&gt; with your favorite RSS reeder. Feed is done by &lt;a href=&quot;https://en.wikipedia.org/wiki/Atom_(web_standard)&quot;&gt;Atom&lt;/a&gt; which is an alternative for RSS.&lt;/p&gt;
 </content>
   </entry>
 </feed>

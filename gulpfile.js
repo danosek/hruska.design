@@ -56,7 +56,7 @@ const mvbConf = {
 	// callback function for generating an article permalink.
 	// see docs below for info on the article properties.
 	permalink(article) {
-		return `/${path.articlesBasepath}/${article.id}.html`;
+		return `/${path.articlesBase}/${article.id}.html`;
 	},
 	// callback function to further modify an article after it has been loaded.
 	//loaded(article) {

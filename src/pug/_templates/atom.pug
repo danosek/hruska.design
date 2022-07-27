@@ -12,5 +12,8 @@ feed(xmlns="http://www.w3.org/2005/Atom" xml:base="https://example.org")
                 id= article.id
                 title= article.title
                 link(href=article.permalink)
-                updated= article.date.toISOString()
+                if (article.update)
+                    updated= article.update.toISOString()
+                else 
+                    updated= article.date.toISOString()
                 content(type="html")= article.content
