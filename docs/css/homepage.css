@@ -121,7 +121,7 @@ header {
   font-weight: var(--heading-weight);
   letter-spacing: -0.025ch;
   font-feature-settings: var(--heading-features);
-  --heading-weight: var(--thin-heading-weight);
+  --heading-weight: var(--heading-weight-sections);
   color: var(--secondary);
   scroll-snap-align: start;
 }
@@ -146,7 +146,7 @@ projects {
   font-weight: var(--text-weight);
 }
 project {
-  --project-gap: 4rem;
+  --project-gap: 1rem;
   display: grid;
   scroll-snap-align: start;
   gap: var(--project-gap);
@@ -275,7 +275,7 @@ coop-text {
   max-inline-size: 40ch;
 }
 blog-articles {
-  --blog-gap: 0.75em;
+  --blog-gap: 1rem;
   display: grid;
   gap: var(--blog-gap);
   font-family: var(--font-stack-headings);

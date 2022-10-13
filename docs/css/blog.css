@@ -71,9 +71,9 @@ ul {
 }
 li a {
   font-family: var(--font-stack-headings);
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-xxl);
   font-weight: var(--heading-weight);
-  letter-spacing: -0.02ch;
+  letter-spacing: -0.025ch;
   font-feature-settings: var(--heading-features);
   --heading-weight: var(--blog-heading-weight);
 }
@@ -90,7 +90,7 @@ h2 {
   color: var(--secondary);
   font-size: var(--font-size-xxxl);
   font-weight: var(--text-weight);
-  font-weight: var(--thin-heading-weight);
+  font-weight: var(--heading-weight-sections);
   line-height: 0.8;
   margin: 0;
   z-index: 1;
