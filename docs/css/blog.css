@@ -1,5 +1,4 @@
-@media (prefers-color-scheme: light) {
-}:root {
+:root {
   --container-size: 1600px;
   --section-gap: clamp(4rem, 8vw, 8rem);
   --section-gap-h: calc(var(--section-gap) / 2);

@@ -1,5 +1,4 @@
-@media (prefers-color-scheme: light) {
-}:where(:root, *) {
+:where(:root, *) {
   --container-size: 1600px;
   --article-lenght: 60ch;
   --section-gap: clamp(2rem, 8vw, 4rem);
@@ -10,13 +9,6 @@
   --text-primary-color: hsl(0 0% 100% / 0.65);
   --text-secondary-color: hsl(0 0% 100% / 0.5);
   --heading-color: var(--intro-color);
-}
-@media (prefers-color-scheme: light) {
-  :where(:root, *) {
-    --text-pure: hsl(0 0% 0% / 0.75);
-    --text-primary-color: hsl(0 0% 0% / 0.6);
-    --text-secondary-color: hsl(0 0% 0% / 0.5);
-  }
 }
 body {
   margin: 0;

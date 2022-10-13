@@ -217,6 +217,7 @@ gulp.task('watch', gulp.parallel('less', 'pug', 'js', 'img', 'fonts', 'less:solo
 	gulp.watch(path.src.fonts, gulp.parallel('fonts'));
 	gulp.watch('docs/**/*.html').on('change', browserSync.reload);
 	gulp.watch('docs/**/*.css').on('change', browserSync.reload);
+	gulp.watch('docs/**/*.js').on('change', browserSync.reload);
 }));
 
 gulp.task('setWatch', function (done) {
