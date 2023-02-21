@@ -5,8 +5,22 @@
 
 doctype html
 
-html
+html(article)
    head
+      script(src="/js/outdated-browser-rework.min.js")
+      script.
+         outdatedBrowserRework({
+            browserSupport: {
+               'Chrome': 106,
+               'Edge': 106,
+               'Safari': 16,
+               'Mobile Safari': 16,
+               'Firefox': 110,
+               'Opera': 95,
+               'IE': false
+            }
+         })
+
       title Daniel Hruška: #{mvb.article.title}
       meta(charset="utf-8")
       meta(name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no")
@@ -18,12 +32,13 @@ html
       meta(property="og:description" content=`${tuncText}`)
       meta(property="og:url" content=`https://hruska.design/articles/${mvb.article.id}.html`)
       meta(name="color-scheme" content="dark light")
-      link(rel="stylesheet" type="text/css" href="../css/index.css")
-      link(rel="stylesheet" type="text/css" href="../css/article.css")
-      link(rel="icon" href="../img/favicon-lt.svg" type="image/svg+xml" media="(prefers-color-scheme: light)")
-      link(rel="icon" href="../img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)")
-      link(rel="mask-icon" href="../img/favicon.svg" type="image/svg+xml" color="#F48525" media="(prefers-color-scheme: light)")
-      link(rel="mask-icon" href="../img/favicon.svg" type="image/svg+xml" color="#D76909" media="(prefers-color-scheme: dark)")
+      link(rel="stylesheet" type="text/css" href="/css/index.css")
+      link(rel="stylesheet" type="text/css" href="/css/article.css")
+      link(rel="stylesheet" type="text/css" href="index.css")
+      link(rel="icon" href="/img/favicon-lt.svg" type="image/svg+xml" media="(prefers-color-scheme: light)")
+      link(rel="icon" href="/img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)")
+      link(rel="mask-icon" href="/img/favicon.svg" type="image/svg+xml" color="#F48525" media="(prefers-color-scheme: light)")
+      link(rel="mask-icon" href="/img/favicon.svg" type="image/svg+xml" color="#D76909" media="(prefers-color-scheme: dark)")
       //-script(type="module" src="https://unpkg.com/ninja-keys?module")
 
       // Global site tag (gtag.js) - Google Analytics
@@ -38,17 +53,21 @@ html
    body
       //-ninja-keys.dark(placeholder="Přejít na…" goBackHotkey="backspace,left", hideBreadcrumbs, noAutoLoadMdIcons)
          div(slot="footer")
+      
+      canvas.webgl
+
       main
+
          header 
             h1(title="Hruška Design" aria-label="Hruška Design")
-                  a(href="../index.html")
+                  a(href="/")
                      span.name hruska
                      span.domain design
                      //span.dot _
 
             nav
-                  a(href="../index.html") Work
-                  a(href="../blog.html") Blog
+                  a(href="/") Work
+                  a(href="/blog/") Blog
          //- breadcrumbs(role="navigation" aria-label="Main")
          //-    breadcrumb
          //-       a(href="../index.html") hruskadesign_
@@ -72,22 +91,22 @@ html
                if (mvb.article.previousArticle)
                   p 
                      span Previous article
-                     a(href=`${mvb.article.previousArticle.id}.html`)= mvb.article.previousArticle.title
+                     a(href=`../${mvb.article.previousArticle.id}`)= mvb.article.previousArticle.title
 
                else
                   p
                      span This is the first article
-                     a(href="../blog.html") All articles
+                     a(href="/blog/") All articles
 
                if (mvb.article.nextArticle)
                   p 
                      span Next article
-                     a(href=`${mvb.article.nextArticle.id}.html`)= mvb.article.nextArticle.title
+                     a(href=`../${mvb.article.nextArticle.id}`)= mvb.article.nextArticle.title
                else
                   p
                      span This is the last article
-                     a(href="../blog.html") All articles
-            a(href="../atom.xml").subscribe-link Subscribe
+                     a(href="/blog") All articles
+            a(href="/atom.xml").subscribe-link Subscribe
             //- if (mvb.article.previousArticle && mvb.article.nextArticle) 
             //-    p
             //-       span ..
@@ -107,6 +126,8 @@ html
             a.setAttribute('rel', 'noopener noreferrer');
             console.log("link");
          });
+
+      script(src="/js/particles-article.js" type="module") 
 
       //-script.
          const ninja = document.querySelector('ninja-keys');

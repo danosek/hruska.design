@@ -13,13 +13,14 @@
 }
 
 code {
-    font-size: var(--font-size-s);
+    //font-size: var(--font-size-s);
     
     :not(pre) > & {
-        padding: var(--tag-padding);
-        border-radius: var(--radius);
-        //color: var(--text-disabled-color);
-        //background-color: var(--divider);
+        // padding: var(--tag-padding);
+        //border-radius: var(--radius);
+        color: var(--text-secondary-color);
+        //background-color: var(--code-bg);
+        //border: 1px solid var(--divider);
     }
 
     a:hover > &,
@@ -31,7 +32,7 @@ code {
 pre {
     padding: 1rem var(--edge);
     //border: var(--border-width) solid var(--divider);
-    //border-radius: var(--radius);
+    border-radius: var(--radius-2x);
     background-color: var(--pre-bg);
     font-size: var(--font-size-s);
     overflow: auto;

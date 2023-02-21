@@ -1,0 +1,150 @@
+@layer demo,demo-1, demo-2, ex, ch;
+
+@layer demo {
+
+    demo {
+        display: block;
+        inline-size: 100vi;
+        margin-inline: calc(calc(calc(100vi - 100cqi) / 2) * -1);
+    }
+}
+
+@layer demo-1 {
+
+    #demo-1 {
+        display: grid;
+        justify-content: center;
+        gap: 1em;
+        font-size: 50pt;
+    }
+
+    ex,
+    ch {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        align-items: baseline;
+        gap: 1ch;
+    }
+
+    div {
+        display: inline-grid;
+        align-items: baseline;
+        position: relative;
+        color: var(--divider);
+        inline-size: fit-content;
+
+        &+& {
+            margin-inline-start: 4px;
+        }
+
+        span,
+        divider {
+            grid-row-start: 1;
+            grid-column-start: 1;
+        }
+
+        &:nth-of-type(2) {
+            font-family: sans-serif;
+        }
+
+        &:nth-of-type(3) {
+            font-family: monospace;
+        }
+
+        divider {
+            display: block;
+            content: "";
+            background-color: var(--primary-a);
+            --alpha: 0.2 !important;
+            box-sizing: border-box;
+        }
+    }
+}
+
+@layer ex {
+
+    ex {
+        div {
+            divider {
+                width: 100%;
+                height: 1ex;
+                border-block: 1px solid var(--primary);
+            }
+        }
+    }
+
+}
+
+@layer ch {
+
+    ch {
+        div {
+            divider {
+                width: 1ch;
+                height: 100%;
+                border-inline: 1px solid var(--primary);
+            }
+        }
+    }
+
+}
+
+@layer demo-2 {
+    #demo-2 {
+        inline-size: initial;
+        margin-inline: initial;
+        //color: var(--primary--40);
+
+        container-em,
+        container-ch {
+            display: block;
+            border-inline: 1px solid var(--primary);
+
+            p {
+                color: var(--divider) !important;
+            }
+        }
+
+        container-em {
+            max-inline-size: 20em;
+        }
+
+        container-ch {
+            max-inline-size: 20ch;
+        }
+    }
+}
+
+@layer demo-3 {
+    #demo-3 {
+        inline-size: initial;
+        margin-inline: initial;
+        color: var(--primary--40);
+
+        padding-em,
+        padding-ch,
+        padding-combo {
+            display: block;
+            border: 1px solid var(--primary);
+            background-color: var(--primary-a);
+            --alpha: 0.1 !important;
+            inline-size: fit-content;
+            line-height: 1;
+        }
+
+        padding-em {
+            padding: 1em;
+        }
+
+        padding-ch {
+            padding: 1ch;
+            margin-block-start: 1em;
+        }
+
+        padding-combo {
+            padding: 1em 1ch;
+            margin-block-start: 1em;
+        }
+    }
+}

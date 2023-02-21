@@ -1,0 +1,115 @@
+@layer demo,demo-1, demo-2, ex, ch;
+@layer demo {
+  demo {
+    display: block;
+    inline-size: 100vi;
+    margin-inline: calc(calc(calc(100vi - 100cqi) / 2) * -1);
+  }
+}
+@layer demo-1 {
+  #demo-1 {
+    display: grid;
+    justify-content: center;
+    gap: 1em;
+    font-size: 50pt;
+  }
+  ex,
+  ch {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+    align-items: baseline;
+    gap: 1ch;
+  }
+  div {
+    display: inline-grid;
+    align-items: baseline;
+    position: relative;
+    color: var(--divider);
+    inline-size: fit-content;
+  }
+  div + div {
+    margin-inline-start: 4px;
+  }
+  div span,
+  div divider {
+    grid-row-start: 1;
+    grid-column-start: 1;
+  }
+  div:nth-of-type(2) {
+    font-family: sans-serif;
+  }
+  div:nth-of-type(3) {
+    font-family: monospace;
+  }
+  div divider {
+    display: block;
+    content: "";
+    background-color: var(--primary-a);
+    --alpha: 0.2 !important;
+    box-sizing: border-box;
+  }
+}
+@layer ex {
+  ex div divider {
+    width: 100%;
+    height: 1ex;
+    border-block: 1px solid var(--primary);
+  }
+}
+@layer ch {
+  ch div divider {
+    width: 1ch;
+    height: 100%;
+    border-inline: 1px solid var(--primary);
+  }
+}
+@layer demo-2 {
+  #demo-2 {
+    inline-size: initial;
+    margin-inline: initial;
+  }
+  #demo-2 container-em,
+  #demo-2 container-ch {
+    display: block;
+    border-inline: 1px solid var(--primary);
+  }
+  #demo-2 container-em p,
+  #demo-2 container-ch p {
+    color: var(--divider) !important;
+  }
+  #demo-2 container-em {
+    max-inline-size: 20em;
+  }
+  #demo-2 container-ch {
+    max-inline-size: 20ch;
+  }
+}
+@layer demo-3 {
+  #demo-3 {
+    inline-size: initial;
+    margin-inline: initial;
+    color: var(--primary--40);
+  }
+  #demo-3 padding-em,
+  #demo-3 padding-ch,
+  #demo-3 padding-combo {
+    display: block;
+    border: 1px solid var(--primary);
+    background-color: var(--primary-a);
+    --alpha: 0.1 !important;
+    inline-size: fit-content;
+    line-height: 1;
+  }
+  #demo-3 padding-em {
+    padding: 1em;
+  }
+  #demo-3 padding-ch {
+    padding: 1ch;
+    margin-block-start: 1em;
+  }
+  #demo-3 padding-combo {
+    padding: 1em 1ch;
+    margin-block-start: 1em;
+  }
+}

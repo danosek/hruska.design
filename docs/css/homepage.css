@@ -35,16 +35,12 @@ main {
   position: relative;
   z-index: 0;
 }
-.webgl {
-  position: fixed;
-  top: 0;
-  left: 0;
-  outline: none;
-}
 section:first-of-type {
+  grid-column: div-start / div-end;
   display: grid;
   align-items: end;
   margin-block-start: calc(var(--section-gap-h) * -1);
+  margin-block-end: var(--section-gap);
   scroll-snap-align: start;
   min-block-size: calc(90vh - var(--header-height) - var(--section-gap));
   block-size: fit-content;
@@ -77,16 +73,50 @@ section > * + * {
   }
 }
 .bio-me {
+  --bio-me-gap: 0.75em;
   color: var(--intro-color);
   font-family: var(--font-stack-headings);
   font-size: var(--font-size-xxxl);
   font-weight: var(--heading-weight);
-  letter-spacing: -0.03ch;
   font-feature-settings: var(--heading-features);
   margin: 0;
   padding-block-start: var(--section-gap-h);
   letter-spacing: 0;
-  line-height: var(--line-height-medium);
+  line-height: 1;
+}
+.bio-me > span {
+  display: inline-block;
+}
+.bio-me > span:nth-of-type(1) {
+  font-weight: 120;
+  padding-block-end: var(--bio-me-gap);
+  color: var(--primary--10);
+}
+.bio-me > span:nth-of-type(2) {
+  font-weight: 90;
+  color: var(--primary--20);
+}
+.bio-me > span:nth-of-type(3) {
+  font-weight: 90;
+  color: var(--primary--20);
+  padding-block-end: var(--bio-me-gap);
+}
+.bio-me > span:nth-of-type(4) {
+  font-weight: 60;
+  color: var(--primary--40);
+}
+.bio-me > span:nth-of-type(5) {
+  font-weight: 60;
+  color: var(--primary--40);
+  padding-block-end: var(--bio-me-gap);
+}
+.bio-me > span:nth-of-type(6) {
+  font-weight: 30;
+  color: var(--primary--50);
+}
+.bio-me > span:nth-of-type(7) {
+  font-weight: 30;
+  color: var(--primary--50);
 }
 .bio-me span {
   line-height: 0;
@@ -101,15 +131,6 @@ section > * + * {
 .bio-me .u-text {
   text-decoration: underline;
 }
-@media screen and (min-width: 720px) {
-  .bio-me {
-    font-family: var(--font-stack-headings);
-    font-size: var(--font-size-xxxl);
-    font-weight: var(--heading-weight);
-    letter-spacing: -0.03ch;
-    font-feature-settings: var(--heading-features);
-  }
-}
 header {
   scroll-snap-align: start;
 }
@@ -119,17 +140,19 @@ header {
   font-family: var(--font-stack-headings);
   font-size: var(--font-size-xxl);
   font-weight: var(--heading-weight);
-  letter-spacing: -0.025ch;
   font-feature-settings: var(--heading-features);
   --heading-weight: var(--heading-weight-sections);
-  color: var(--secondary);
+  color: var(--divider);
   scroll-snap-align: start;
+  border-block-start: var(--border-width) solid var(--divider);
+  padding-block-start: 1rem;
 }
 @media screen and (min-width: 720px) {
   :is(section, header, footer) h2 {
     writing-mode: vertical-rl;
     text-orientation: mixed;
     margin-block-end: 0;
+    inline-size: min-content;
   }
 }
 :is(section, header, footer) h2 span {
@@ -142,12 +165,11 @@ header {
 projects {
   display: grid;
   gap: var(--section-gap);
-  font-size: var(--font-size-l);
-  font-weight: var(--text-weight);
 }
 project {
   --project-gap: 1rem;
   display: grid;
+  grid-template-columns: minmax(0, 50ch);
   scroll-snap-align: start;
   gap: var(--project-gap);
 }
@@ -155,10 +177,7 @@ project p a {
   --link-color: currentColor;
   --link-decoration-color: var(--text-disabled-color);
 }
-project:last-of-type {
-  color: var(--primary);
-}
-project:last-of-type p {
+project:last-of-type h3 {
   color: var(--primary);
 }
 :is(project-content, project-shadow) {
@@ -179,14 +198,15 @@ project-content h3 {
   font-family: var(--font-stack-headings);
   font-size: var(--font-size-xxxl);
   font-weight: var(--heading-weight);
-  letter-spacing: -0.03ch;
   font-feature-settings: var(--heading-features);
-  font-weight: 300;
   line-height: 1;
   font-feature-settings: none;
-  inline-size: fit-content;
+  inline-size: min-content;
+  color: var(--secondary--70);
 }
 project-content p {
+  font-size: var(--font-size-l);
+  font-weight: var(--text-weight);
   margin: 0;
   font-weight: 400;
   line-height: var(--line-height-text);
@@ -220,14 +240,14 @@ project-shadow {
   border: var(--border-width) solid;
   scroll-snap-align: start;
   grid-column-end: -1;
+  -webkit-backdrop-filter: blur(3px) saturate(200%) brightness(150%) contrast(120%);
+  backdrop-filter: blur(3px) saturate(200%) brightness(150%) contrast(120%);
 }
 #coop h3 {
-  font-family: var(--font-stack-headings);
-  font-size: var(--font-size-l);
-  font-weight: var(--heading-weight);
-  letter-spacing: -0.015ch;
-  font-feature-settings: var(--heading-features);
-  font-weight: 300;
+  font-size: var(--font-size-base);
+  font-weight: var(--text-weight);
+  font-family: var(--font-stack);
+  font-weight: 700;
   margin: 0 0 2rem 0;
   line-height: var(--line-height-dense);
 }
@@ -275,34 +295,30 @@ coop-text {
   max-inline-size: 40ch;
 }
 blog-articles {
-  --blog-gap: 1rem;
+  --blog-gap: 1em 1ch;
   display: grid;
   gap: var(--blog-gap);
-  font-family: var(--font-stack-headings);
-  font-size: var(--font-size-xxl);
-  font-weight: var(--heading-weight);
-  letter-spacing: -0.025ch;
-  font-feature-settings: var(--heading-features);
+  font-size: var(--font-size-xl);
+  font-weight: var(--text-weight);
+}
+@media only screen and (min-width: 1400px) {
+  blog-articles {
+    grid-template-columns: repeat(3, auto);
+  }
 }
 blog-articles h3 {
   margin: 0;
-  font-family: var(--font-stack-headings);
-  font-size: var(--font-size-xxl);
-  font-weight: var(--heading-weight);
-  letter-spacing: -0.025ch;
-  font-feature-settings: var(--heading-features);
 }
 blog-articles h3 a {
   display: inline-block;
-}
-blog-articles a {
   font-family: var(--font-stack-headings);
-  font-size: var(--font-size-xxl);
+  font-size: var(--font-size-xl);
   font-weight: var(--heading-weight);
-  letter-spacing: -0.025ch;
   font-feature-settings: var(--heading-features);
   --heading-weight: var(--blog-heading-weight);
-  font-stretch: var(--blog-heading-width);
+  max-inline-size: 17ch;
+  line-height: 1em;
+  --link-color: var(--primary--40);
 }
 @media (pointer: fine) {
   blog-articles a {
@@ -310,9 +326,12 @@ blog-articles a {
   }
 }
 blog-articles > a {
+  grid-column: 1/-1;
   inline-size: fit-content;
   --link-color: var(--primary);
   --link-bg: var(--primary-a);
+  font-size: var(--font-size-l);
+  font-weight: var(--text-weight);
 }
 blog-articles .no-articles {
   --heading-weight: var(--blog-heading-weight);
@@ -367,7 +386,6 @@ bio-year {
   font-family: var(--font-stack-headings);
   font-size: var(--font-size-l);
   font-weight: var(--heading-weight);
-  letter-spacing: -0.015ch;
   font-feature-settings: var(--heading-features);
 }
 bio-year:first-of-type span {

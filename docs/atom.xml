@@ -1,41 +1,59 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://example.org">
-  <id>https://example.org/atom.xml</id>
-  <title>Daniel Hruška's Blog</title>
-  <updated>2022-07-26T00:00:00.000Z</updated>
-  <link href="/"></link>
-  <link rel="self" href="/atom.xml"></link>
-  <entry>
-    <id>hello-world</id>
-    <title>Hello World</title>
-    <link href="/articles/hello-world.html"></link>
-    <updated>2022-07-27T00:00:00.000Z</updated>
-    <content type="html">&lt;h2&gt;First words&lt;/h2&gt;
-&lt;p&gt;It seems to be a little bit cliché I named the first article “Hello World.” But you know what – it feels just right on design slash dev related blog. I’ve had a website before but it didn’t have a blog and I didn’t communicate anything except my portfolio. So “Hello” again or “Ahoj” as we say here in Czech Republic.&lt;/p&gt;
-&lt;p&gt;English is not my mother language and sometimes you can find weird phrases, word combinations, wrong tenses or other grammar mistakes. I hope everything will be fine with you. My plan for content is no plan. I’ll write down anything what comes in my mind – CSS, Less, HTML, Pug, Sketch or just random thought. In the upcoming months I’ll be starting to learning Blender a Three.js so maybe I’ll post interesting notes form that. But let’s start how I build this page first.&lt;/p&gt;
-&lt;h2&gt;Under the hood&lt;/h2&gt;
-&lt;p&gt;I’m a designer with skills in HTML and CSS. That said, I’ve decided to stay in these waters and build static website, even with a blog in mind.&lt;/p&gt;
-&lt;h3&gt;HTML&lt;/h3&gt;
+<?xml version="1.0" encoding="utf-8" ?><feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://example.org"><id>https://example.org/atom.xml</id><title>Daniel Hruška's Blog</title><updated>2023-02-21T00:00:00.000Z</updated><link href="/"></link><link rel="self" href="/atom.xml"></link><entry><id>units-ch-and-ex</id><title>CSS units 'ch' &amp; 'ex'</title><link href="/articles/units-ch-and-ex/"></link><updated>2023-02-21T00:00:00.000Z</updated><content type="html">&lt;p&gt;You know them, the usual suspects:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;rem&lt;/code&gt;: Relative size to root element size. I always set the base size on &lt;code&gt;:root&lt;/code&gt; and it could be anything - &lt;code&gt;16px&lt;/code&gt;, &lt;code&gt;20pt&lt;/code&gt;, &lt;code&gt;3cm&lt;/code&gt;, …&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;em&lt;/code&gt;: Relative size to the element size. If you have for example &lt;code&gt;14pt&lt;/code&gt; on the root element, &lt;code&gt;2em&lt;/code&gt; means &lt;code&gt;28pt&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;px&lt;/code&gt;: Pixel, the dot on the screen. Or it used to be. Now with high density screens one logical pixel could mean four more physical pixels.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%&lt;/code&gt; : Relative to the parent element. This is the main difference to &lt;code&gt;em&lt;/code&gt;. Parent element could be one level up in the DOM.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Then there are more less known units which are dope, nobody uses them (or at least I don’t know anyone). But I do. At least one of them.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ch&lt;/code&gt;: Width of the character &lt;code&gt;0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ex&lt;/code&gt;: Hight of the character &lt;code&gt;x&lt;/code&gt;, the good old x-height.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!--=include ch.html --&gt;
+&lt;!--=include ex.html --&gt;
+&lt;p&gt;Cool, but what about that? The &lt;code&gt;ex&lt;/code&gt; isn’t that interesting or practical. I’ve wanted to visualised it because as you can see, every typeface has distinct x-height. The &lt;code&gt;ch&lt;/code&gt; not the other hand is handy and I use it all the time. &lt;mark&gt;It’s the &lt;code&gt;em&lt;/code&gt; unit on horizontal axis.&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;Let’s compare to containers with dummy text. We want to have them approximately 40 characters wide. The first container has maximum width &lt;code&gt;20em&lt;/code&gt;, the second &lt;code&gt;20ch&lt;/code&gt;. As you can see, defining width using &lt;code&gt;ch&lt;/code&gt; has more precise output. The text is approximately 20 characters wide.&lt;/p&gt;
+&lt;!--=include ch-container.html --&gt;
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;hljs-selector-class&quot;&gt;.em-container&lt;/span&gt; {
+   &lt;span class=&quot;hljs-attribute&quot;&gt;max-inline-size&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;20em&lt;/span&gt;;
+}
+
+&lt;span class=&quot;hljs-selector-class&quot;&gt;.ch-container&lt;/span&gt; {
+   &lt;span class=&quot;hljs-attribute&quot;&gt;max-inline-size&lt;/span&gt;: &lt;span class=&quot;hljs-number&quot;&gt;20ch&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;That’s all. Ahoj.&lt;/p&gt;
+</content></entry><entry><id>hello-world</id><title>Hello World</title><link href="/articles/hello-world/"></link><updated>2023-02-20T00:00:00.000Z</updated><content type="html">&lt;h2 id=&quot;first-words&quot;&gt;First words&lt;/h2&gt;
+&lt;p&gt;It seems to be a little bit cliché I named the first article “Hello World.” But you know what – it feels right on design slash dev related blog. I’ve had a website before but it didn’t have a blog and I didn’t communicate anything except my portfolio. So “Hello” again or “Ahoj” as we say here in Czech Republic.&lt;/p&gt;
+&lt;p&gt;English is not my mother language and sometimes you can find weird phrases, word combinations, wrong tenses or other grammar mistakes. I hope everything will be fine with you. My plan for content is no plan. I’ll write anything what comes in my mind – CSS, Less, HTML, Pug, Sketch or random thought. In the upcoming months I’ll be starting to learning Blender a Three.js so maybe I’ll post interesting notes from that. But let’s start how I build this page first.&lt;/p&gt;
+&lt;h2 id=&quot;under-the-hood&quot;&gt;Under the hood&lt;/h2&gt;
+&lt;p&gt;I’m a designer with skills in HTML, CSS and little bit of JavaScript. That said, I’ve decided to stay in these waters and build static website, even with a blog in mind.&lt;/p&gt;
+&lt;h3 id=&quot;html&quot;&gt;HTML&lt;/h3&gt;
 &lt;p&gt;I use &lt;a href=&quot;https://pugjs.org/api/getting-started.html&quot;&gt;Pug&lt;/a&gt; for generating HTML. What do I like about it?&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Syntax based on indentation. Just tab, tab, tab.&lt;/li&gt;
-&lt;li&gt;Stripping angle brackets and closing tags which makes code much cleaner.&lt;/li&gt;
+&lt;li&gt;Syntax based on indentation: tab, tab, tab&lt;/li&gt;
+&lt;li&gt;Stripping angle brackets and closing tags which makes code much cleaner&lt;/li&gt;
 &lt;li&gt;Templates for making global changes in few files&lt;/li&gt;
-&lt;li&gt;Calling JS methods within Pug file. For example, in template of this article I use &lt;code&gt;toLocaleDateString()&lt;/code&gt; for date formatting.&lt;/li&gt;
-&lt;li&gt;And of course loops, mixins, variables and other good stuff Pug offers.&lt;/li&gt;
+&lt;li&gt;Calling JS methods within Pug file. For example, in template of this article I use &lt;code&gt;toLocaleDateString()&lt;/code&gt; for date formatting&lt;/li&gt;
+&lt;li&gt;And loops, mixins, variables and other good stuff Pug offers&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Styles&lt;/h3&gt;
-&lt;p&gt;Styling is done by CSS (shocker). In this case I use &lt;a href=&quot;https://lesscss.org&quot;&gt;Less&lt;/a&gt; as my favorite CSS preprocessor. When I’ve started to learn CSS years ago, company I work for used and is still using Less. So am I. I’ve used &lt;a href=&quot;https://sass-lang.com&quot;&gt;Sass&lt;/a&gt; with SCSS syntax in couple of projects but I didn’t see a reason to switch. Maybe I’ll try Sass with indented syntax, that could be nice. Anyway, what do I like about Less?&lt;/p&gt;
+&lt;h3 id=&quot;styles&quot;&gt;Styles&lt;/h3&gt;
+&lt;p&gt;Styling is done by CSS (shocker). In this case I use &lt;a href=&quot;https://lesscss.org&quot;&gt;Less&lt;/a&gt; as my favorite CSS preprocessor. When I’ve started to learn CSS years ago, company I work for had been using Less. So am I. I’ve used &lt;a href=&quot;https://sass-lang.com&quot;&gt;Sass&lt;/a&gt; with SCSS syntax in couple of projects but I didn’t see a reason to switch. Maybe I’ll try Sass with indented syntax, that could be nice. Anyway, what do I like about Less?&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Organizing styles into multiple files&lt;/li&gt;
 &lt;li&gt;Nesting selectors&lt;/li&gt;
-&lt;li&gt;Mixins and variables for not doing the same thing over and over again. Good chunk of variables I need can be now done by pure CSS Custom Properties. That was not the case few years back.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;@import (reference)&lt;/code&gt; for making variables and mixins available only in certain files without compiling the imported one.&lt;/li&gt;
+&lt;li&gt;Mixins and variables for not doing the same thing over and over again. Good chunk of variables I need can be now done by pure CSS Custom Properties. That was not the case few years back&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;@import (reference)&lt;/code&gt; for making variables and mixins available in certain files without compiling the imported one&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3&gt;Writing&lt;/h3&gt;
-&lt;p&gt;When thinking about a blog, &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; is a must. I’ve been using Markdown for writing and notes more than 10 years. I’ve wanted my blog to be as simple as possible. Just throw &lt;code&gt;.md&lt;/code&gt; files in a folder and make things happen. Thankfully there is &lt;a href=&quot;https://github.com/dennisreimann/gulp-mvb&quot;&gt;gulp-mvb&lt;/a&gt; plugin which is pure gold.&lt;/p&gt;
-&lt;h3&gt;Subscribe&lt;/h3&gt;
-&lt;p&gt;If you’d like to read further articles, you can &lt;a href=&quot;../atom.xml&quot;&gt;subscribe to feed&lt;/a&gt; with your favorite RSS reeder. Feed is done by &lt;a href=&quot;https://en.wikipedia.org/wiki/Atom_(web_standard)&quot;&gt;Atom&lt;/a&gt; which is an alternative for RSS.&lt;/p&gt;
-</content>
-  </entry>
-</feed>
+&lt;h3 id=&quot;writing&quot;&gt;Writing&lt;/h3&gt;
+&lt;p&gt;When thinking about a blog, &lt;a href=&quot;https://daringfireball.net/projects/markdown/&quot;&gt;Markdown&lt;/a&gt; is a must. I’ve been using Markdown for writing and notes more than 10 years. I’ve wanted my blog to be as simple as possible – throw &lt;code&gt;.md&lt;/code&gt; files in a folder and make things happen. Thankfully there is &lt;a href=&quot;https://github.com/dennisreimann/gulp-mvb&quot;&gt;gulp-mvb&lt;/a&gt; plugin which is pure gold.&lt;/p&gt;
+&lt;h3 id=&quot;typography&quot;&gt;Typography&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Overpass&lt;/li&gt;
+&lt;li&gt;Overpass Mono&lt;/li&gt;
+&lt;li&gt;Marvin Visions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;subscribe&quot;&gt;Subscribe&lt;/h2&gt;
+&lt;p&gt;If you’d like to read further articles, you can &lt;a href=&quot;/atom.xml&quot;&gt;subscribe to feed&lt;/a&gt; with your favorite RSS reeder. Feed is done by &lt;a href=&quot;https://en.wikipedia.org/wiki/Atom_(web_standard)&quot;&gt;Atom&lt;/a&gt; which is an alternative for RSS.&lt;/p&gt;
+</content></entry></feed>

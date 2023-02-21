@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html article>
+  <head>
+    <script src="/js/outdated-browser-rework.min.js"></script>
+    <script>
+      outdatedBrowserRework({
+         browserSupport: {
+            'Chrome': 106,
+            'Edge': 106,
+            'Safari': 16,
+            'Mobile Safari': 16,
+            'Firefox': 110,
+            'Opera': 95,
+            'IE': false
+         }
+      })
+      
+    </script>
+    <title>Daniel Hruška: CSS units 'ch' &amp; 'ex'</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="You know them, the usual suspects:
+
+rem: Relative size to root element size. I always set the base size on :root and it could be anything -…">
+    <meta name="author" content="Daniel Hruška">
+    <meta property="og:site_name" content="Daniel Hruška">
+    <meta property="og:title" content="CSS units 'ch' &amp; 'ex'">
+    <meta property="og:description" content="You know them, the usual suspects:
+
+rem: Relative size to root element size. I always set the base size on :root and it could be anything -…">
+    <meta property="og:url" content="https://hruska.design/articles/units-ch-and-ex.html">
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/article.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="icon" href="/img/favicon-lt.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+    <link rel="mask-icon" href="/img/favicon.svg" type="image/svg+xml" color="#F48525" media="(prefers-color-scheme: light)">
+    <link rel="mask-icon" href="/img/favicon.svg" type="image/svg+xml" color="#D76909" media="(prefers-color-scheme: dark)">
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JLXDJ81CL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-6JLXDJ81CL');
+      
+    </script>
+  </head>
+  <body>
+    <canvas class="webgl"></canvas>
+    <main>
+      <header> 
+        <h1 title="Hruška Design" aria-label="Hruška Design"><a href="/"><span class="name">hruska</span><span class="domain">design</span>
+            <!--span.dot _--></a></h1>
+        <nav><a href="/">Work</a><a href="/blog/">Blog</a></nav>
+      </header>
+      <article>
+        <header>
+          <h1>CSS units 'ch' &amp; 'ex'</h1>
+        </header>
+        <date>February 21, 23</date>
+        <article-content><p>You know them, the usual suspects:</p>
+<ul>
+<li><code>rem</code>: Relative size to root element size. I always set the base size on <code>:root</code> and it could be anything - <code>16px</code>, <code>20pt</code>, <code>3cm</code>, …</li>
+<li><code>em</code>: Relative size to the element size. If you have for example <code>14pt</code> on the root element, <code>2em</code> means <code>28pt</code>.</li>
+<li><code>px</code>: Pixel, the dot on the screen. Or it used to be. Now with high density screens one logical pixel could mean four more physical pixels.</li>
+<li><code>%</code> : Relative to the parent element. This is the main difference to <code>em</code>. Parent element could be one level up in the DOM.</li>
+</ul>
+<p>Then there are more less known units which are dope, nobody uses them (or at least I don’t know anyone). But I do. At least one of them.</p>
+<ul>
+<li><code>ch</code>: Width of the character <code>0</code></li>
+<li><code>ex</code>: Hight of the character <code>x</code>, the good old x-height.</li>
+</ul>
+<!--=include ch.html -->
+
+<demo id="demo-1">
+  <ex>
+    <div><span>Fox</span>
+      <divider></divider>
+    </div>
+    <div><span>Fox</span>
+      <divider></divider>
+    </div>
+    <div><span>Fox</span>
+      <divider></divider>
+    </div>
+  </ex>
+  <ch>
+    <div><span>007</span>
+      <divider></divider>
+    </div>
+    <div><span>007</span>
+      <divider></divider>
+    </div>
+    <div><span>007</span>
+      <divider></divider>
+    </div>
+  </ch>
+</demo>
+<p>Cool, but what about that? The <code>ex</code> isn’t that interesting or practical. I’ve wanted to visualised it because as you can see, every typeface has distinct x-height. The <code>ch</code> not the other hand is handy and I use it all the time. <mark>It’s the <code>em</code> unit on horizontal axis.</mark></p>
+<p>Let’s compare to containers with dummy text. We want to have them approximately 40 characters wide. The first container has maximum width <code>20em</code>, the second <code>20ch</code>. As you can see, defining width using <code>ch</code> has more precise output. The text is approximately 20 characters wide.</p>
+
+<demo id="demo-2">
+  <container-em>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas aliquet accumsan leo.</p>
+  </container-em>
+  <container-ch>
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas aliquet accumsan leo.</p>
+  </container-ch>
+</demo>
+<pre><code class="language-css"><span class="hljs-selector-class">.em-container</span> {
+   <span class="hljs-attribute">max-inline-size</span>: <span class="hljs-number">20em</span>;
+}
+
+<span class="hljs-selector-class">.ch-container</span> {
+   <span class="hljs-attribute">max-inline-size</span>: <span class="hljs-number">20ch</span>;
+}
+</code></pre>
+<p>That’s all. Ahoj.</p>
+
+        </article-content>
+      </article>
+      <footer>
+        <sibling-articles>
+          <p> <span>Previous article</span><a href="../hello-world">Hello World</a></p>
+          <p><span>This is the last article</span><a href="/blog">All articles</a></p>
+        </sibling-articles><a class="subscribe-link" href="/atom.xml">Subscribe</a>
+      </footer>
+    </main>
+    <script>
+      const anchors = document.querySelectorAll('article a');
+      anchors.forEach((a) => {
+         a.setAttribute('target', '__blank');
+         a.setAttribute('rel', 'noopener noreferrer');
+         console.log("link");
+      });
+      
+    </script>
+    <script src="/js/particles-article.js" type="module"> </script>
+  </body>
+</html>

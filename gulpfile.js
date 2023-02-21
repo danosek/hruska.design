@@ -1,46 +1,51 @@
-var mvb = require('gulp-mvb');
-var highlightjs = require('highlight.js');
-var rename = require("gulp-rename");
-
-var gulp = require('gulp');
-var less = require('gulp-less');
-var sourcemaps = require('gulp-sourcemaps');
-var LessPluginAutoPrefix = require('less-plugin-autoprefix');
-var pug = require('gulp-pug');
-var gulpif = require('gulp-if');
-var changed = require('gulp-changed');
-var cached = require('gulp-cached');
-var browserSync = require('browser-sync').create();
-const errorHandler = require('gulp-error-handle');
-var filter = require('gulp-filter');
-var debug = require('gulp-debug');
-var remember = require('gulp-remember');
-var autoprefix = new LessPluginAutoPrefix({
+const highlightjs = require('highlight.js')
+const gulp = require('gulp')
+const rename = require("gulp-rename")
+const mvb = require('gulp-mvb')
+const less = require('gulp-less')
+const sourcemaps = require('gulp-sourcemaps')
+const LessPluginAutoPrefix = require('less-plugin-autoprefix')
+const pug = require('gulp-pug')
+const gulpif = require('gulp-if')
+const changed = require('gulp-changed')
+const cached = require('gulp-cached')
+const browserSync = require('browser-sync').create()
+const errorHandler = require('gulp-error-handle')
+const filter = require('gulp-filter')
+const debug = require('gulp-debug')
+const remember = require('gulp-remember')
+const autoprefix = new LessPluginAutoPrefix({
 	browsers: ["Chrome >= 57", "Edge >= 39", "Safari >= 10", "iOS >= 10", "Opera 50", "Firefox 50"]
-});
+})
+const npmDist = require('gulp-npm-dist');
+const glsl = require('gulp-glsl');
+const urlBuilder = require('gulp-url-builder')
+const include = require('gulp-include')
+const replace = require('gulp-replace');
 
-var path = {
+const path = {
 	src: {
+		static: 'src/static/**/*.*',
 		js: 'src/js/**/*.js',
 		less: 'src/less/**/*.less',
-		less_solo: 'src/less/solo/*.less',
 		less_main: 'src/less/*.less',
-		img: 'src/img/*.*',
+		less_articles: 'src/articles-less/*.less',
 		pug: 'src/pug/**/*.pug',
 		pug_includes: 'src/pug/_includes/*.pug',
 		pug_main: ['src/pug/**/*.pug', '!src/pug/_includes/*.pug'],
-		fonts: 'src/fonts/**/*.*',
 		articles: 'src/articles/**/*.md',
-		robots: 'src/robots.txt'
+		shaders: 'src/shaders/**/*.glsl',
+		demos: "src/articles-demos/**/*.pug"
 	},
 	dist: {
 		root: 'docs/',
 		js: 'docs/js/',
 		less: 'docs/css/',
-		img: 'docs/img/',
+		less_articles: 'docs/articles/',
 		pug: 'docs/',
-		fonts: 'docs/fonts/',
-		articles: 'docs/articles'
+		articles: 'docs/articles',
+		shaders: 'docs/shaders',
+		demos: "src/articles-demos"
 	},
 	articlesBase: 'articles',
 	feedTemplate: 'src/pug/_templates/atom.pug',
@@ -53,14 +58,21 @@ const mvbConf = {
 	glob: path.src.articles,
 	// the template for an article page
 	template: path.articleTemplate,
+
+	// optionally define custom markdown-it plugins
+	plugins: [
+		'markdown-it-mark',
+		['markdown-it-anchor', { tabIndex: false }]
+	],
+
 	// callback function for generating an article permalink.
 	// see docs below for info on the article properties.
 	permalink(article) {
-		return `/${path.articlesBase}/${article.id}.html`;
+		return `/${path.articlesBase}/${article.id}/`;
 	},
 	// callback function to further modify an article after it has been loaded.
 	//loaded(article) {
-		//article.calculatedData = doSomething();
+	//article.calculatedData = doSomething();
 	//},
 	highlight(code, lang) {
 		const languages = (lang != null) ? [lang] : undefined;
@@ -98,43 +110,27 @@ const mvbConf = {
 			byYear: articlesByYear
 		}
 	}
-}
+};
 
-
-gulp.task('less', function (done) {
+gulp.task('less', () => {
 	return gulp.src(path.src.less_main)
 		.pipe(errorHandler())
+
+		// //only pass unchanged *main* files and *all* the partials
+		// .pipe(gulpif(global.isWatching, changed('docs', { extension: '.css' })))
+
+		// //filter out unchanged partials, but it only works when watching
+		// .pipe(gulpif(global.isWatching, cached('less')))
+
 		.pipe(sourcemaps.init())
 		.pipe(less())
 		.pipe(sourcemaps.write('.'))
 		.pipe(debug({ title: 'less' }))
 		.pipe(gulp.dest(path.dist.less))
-		.pipe(browserSync.stream());
-	//done();
+		.pipe(browserSync.stream())
 });
 
-gulp.task('less:solo', function (done) {
-	return gulp.src(path.src.less_solo)
-		.pipe(errorHandler())
-
-		//only pass unchanged *main* files and *all* the partials
-		.pipe(gulpif(global.isWatching, changed('docs', { extension: '.css' })))
-
-		//filter out unchanged partials, but it only works when watching
-		.pipe(gulpif(global.isWatching, cached('less:solo')))
-
-		.pipe(sourcemaps.init())
-		.pipe(less())
-		.pipe(sourcemaps.write('.'))
-		.pipe(debug({ title: 'less:solo' }))
-		.pipe(remember('less:solo'))
-
-		.pipe(gulp.dest(path.dist.less))
-		.pipe(browserSync.stream());
-	//done();
-});
-
-gulp.task('pug', function (done) {
+gulp.task('pug', () => {
 	return gulp.src(path.src.pug)
 		.pipe(errorHandler())
 		.pipe(mvb(mvbConf))
@@ -152,45 +148,26 @@ gulp.task('pug', function (done) {
 
 		//.pipe(cached('pug'))
 		.pipe(pug({ pretty: true, doctype: 'HTML' }))
-		.pipe(debug({ title: 'pug' }))
+		//.pipe(debug({ title: 'pug' }))
+		.pipe( urlBuilder() )
 		.pipe(remember('pug'))
 
 		.pipe(gulp.dest(path.dist.pug))
 		.pipe(browserSync.stream());
-	//done();
 });
 
-gulp.task('js', function (done) {
+gulp.task('js', () => {
 	return gulp.src(path.src.js)
 		.pipe(errorHandler())
 		.pipe(gulp.dest(path.dist.js))
-	//done();
 });
 
-gulp.task('img', function (done) {
-	return gulp.src(path.src.img)
+gulp.task('static', () => {
+	return gulp.src(path.src.static)
 		.pipe(errorHandler())
-		.pipe(debug({ title: 'IMG' }))
-		.pipe(gulp.dest(path.dist.img))
-	//.pipe(browserSync.stream());
-	//done();
-});
-
-gulp.task('fonts', function (done) {
-	return gulp.src(path.src.fonts)
-		.pipe(errorHandler())
-		.pipe(gulp.dest(path.dist.fonts))
-	//done();
-});
-
-
-gulp.task('robots', function (done) {
-	return gulp.src(path.src.robots)
-		.pipe(errorHandler())
+		//.pipe(debug({ title: 'STATIC' }))
 		.pipe(gulp.dest(path.dist.root))
-	//done();
 });
-
 
 gulp.task('browser-sync', function () {
 	browserSync.init({
@@ -201,20 +178,91 @@ gulp.task('browser-sync', function () {
 	});
 });
 
+// Blog
 
-gulp.task('watch', gulp.parallel('less', 'pug', 'js', 'img', 'fonts', 'less:solo', function () {
+gulp.task('articles:md', () =>
+	gulp.src(path.src.articles)
+		.pipe(debug({ title: 'articles:md' }))
+		.pipe(mvb(mvbConf))
+		.pipe(rename(function (path) {
+			// Returns a completely new object, make sure you return all keys needed!
+			return {
+				dirname: path.dirname + "/" + path.basename,
+				basename: "index",
+				extname: ".html"
+			};
+		}))
+		.pipe(pug({pretty: true}))
+		.pipe(include({
+			includePaths: [
+				path.dist.demos
+			  ]
+		}))
+		.pipe(gulp.dest(path.dist.articles))
+);
+
+gulp.task('articles:demos', () => {
+	return gulp.src(path.src.demos)
+		.pipe(errorHandler())
+		.pipe(pug({ pretty: true, doctype: 'HTML' }))
+		.pipe(debug({ title: 'articles:demos' }))
+		.pipe(gulp.dest(path.dist.demos))
+		.pipe(browserSync.stream());
+});
+
+gulp.task('less:articles', () => {
+	return gulp.src(path.src.less_articles)
+		.pipe(errorHandler())
+		.pipe(less())
+		.pipe( urlBuilder() )
+		.pipe(debug({ title: 'less:articles' }))
+		.pipe(gulp.dest(path.dist.less_articles))
+		.pipe(browserSync.stream())
+});
+
+gulp.task('articles', gulp.series("articles:demos", "articles:md", "less:articles")) 
+
+gulp.task('feed', () =>
+	gulp.src(path.feedTemplate)
+		.pipe(mvb(mvbConf))
+		.pipe(pug())
+		.pipe(rename('atom.xml'))
+		.pipe(gulp.dest(path.dist.root))
+);
+
+// Libs
+
+gulp.task('copy:libs', () =>
+	gulp.src(npmDist(), { base: './node_modules', nodir: true })
+		.pipe(rename((path) =>
+			path.dirname = path.dirname.replace(/\/dist/, '').replace(/\\dist/, '')
+		))
+		.pipe(rename((path) =>
+			path.dirname = path.dirname.replace(/\/build/, '').replace(/\\build/, '')
+		))
+		.pipe(gulp.dest('./docs/libs'))
+);
+
+gulp.task("shaders", () =>
+	gulp.src(path.src.shaders)
+		.pipe(glsl({ format: 'module', es6: true }))
+		.pipe(gulp.dest(path.dist.shaders))
+);
+
+// Watch
+
+gulp.task('watch', gulp.parallel('articles', 'less', 'pug', 'js', 'static', function () {
 
 	browserSync.init({
 		server: './docs',
 		browser: "firefox"
 	});
 
+	gulp.watch([path.src.demos, path.src.articles, path.src.less_articles], gulp.series('articles'));
 	gulp.watch(path.src.less, gulp.parallel('less'));
-	gulp.watch(path.src.less_solo, gulp.parallel('less:solo'));
 	gulp.watch(path.src.pug, gulp.parallel('pug'));
 	gulp.watch(path.src.js, gulp.parallel('js'));
-	gulp.watch(path.src.img, gulp.parallel('img'));
-	gulp.watch(path.src.fonts, gulp.parallel('fonts'));
+	gulp.watch(path.src.static, gulp.parallel('static'));
 	gulp.watch('docs/**/*.html').on('change', browserSync.reload);
 	gulp.watch('docs/**/*.css').on('change', browserSync.reload);
 	gulp.watch('docs/**/*.js').on('change', browserSync.reload);
@@ -225,25 +273,8 @@ gulp.task('setWatch', function (done) {
 	done();
 });
 
-// Blog
-
-
-gulp.task('articles', () =>
-	gulp.src(path.src.articles)
-		.pipe(mvb(mvbConf))
-		.pipe(pug({ pretty: true }))
-		.pipe(gulp.dest(path.dist.articles))
-);
-
-gulp.task('feed', () =>
-	gulp.src(path.feedTemplate)
-		.pipe(mvb(mvbConf))
-		.pipe(pug({ pretty: true }))
-		.pipe(rename('atom.xml'))
-		.pipe(gulp.dest(path.dist.root))
-);
 
 // Tasks
 
 gulp.task('default', gulp.series('setWatch', 'watch'));
-gulp.task('build', gulp.series('pug', 'articles', 'js', 'img', 'fonts', 'less', 'less:solo', 'robots', 'feed'));
+gulp.task('build', gulp.series('pug', 'articles', 'js', 'static', 'less', 'feed', 'copy:libs', "shaders"));

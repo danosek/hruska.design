@@ -27,14 +27,14 @@ block content
 
         header 
             h1(title="Hruška Design" aria-label="Hruška Design")
-                a(href="index.html")
+                a(href="/")
                     span.name hruska
                     span.domain design
                     //span.dot _
 
             nav
                 a(href="" active) Work
-                a(href="blog.html") Blog
+                a(href="/blog") Blog
 
         //divider
 
@@ -42,13 +42,17 @@ block content
             p.bio-me
                 span.p-text(lang="cs") Ahoj 
                 br
-                span.p-text My name is Daniel 
+                span.p-text My name
                 br
-                span #[span(class="pp-text") I'm a Czech designer]
+                span is Daniel 
                 br
-                span #[span(class="pp-text") Software is my canvas]#[span(class="ss-text") _]
+                span I'm a Czech 
                 br
-                span 
+                span designer
+                br
+                span Software is
+                br
+                span my canvas_
             //- <svg viewBox="0 0 220 120" x="0px" y="0px" xmlns="http://www.w3.org/2000/svg">
             //-     <text x="125" y="0" text-anchor="middle" stroke="var(--site-bg)" stroke-width="3" paint-order="stroke fill">
             //-         <tspan x="53%" dy="1em">Ahoj,</tspan>
@@ -185,7 +189,7 @@ block content
                 //if mvb.articles[n].lenght > 0
 
                 blog-articles
-                    while n < mvb.articles.length
+                    while (n < mvb.articles.length) && (n < 3)
                         - var text_truncate = function(str, length, ending) { if (length == null) { length = 100; } if (ending == null) { ending = '…'; } if (str.length > length) { return str.substring(0, length - ending.length) + ending; } else { return str; } };
                         - var myHTML= mvb.articles[n].content;
                         - var strippedHtml = myHTML.replace(/<[^>]+>/g, '');
@@ -193,11 +197,11 @@ block content
 
                         article
                             h3
-                                a(href=`articles/${mvb.articles[n].id}.html`)= mvb.articles[n].title
+                                a(href=`articles/${mvb.articles[n].id}/`)= mvb.articles[n].title
                             //p= tuncText
                         - n = n + 1
 
-                    a(href="blog.html") All articles →
+                    a(href="/blog") All articles →
             else
                 blog-articles
                     div

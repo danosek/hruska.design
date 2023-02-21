@@ -5,22 +5,6 @@ doctype html
 html(lang="en")
   head
 
-    //- Outdated browser detection
-    //- <script src="./js/outdated-browser-rework.js" type="application/javascript"></script>
-    //- script.
-    //-   outdatedBrowserRework({
-    //-     browserSupport: {
-    //-       'Chrome': 58,
-    //-       'Edge': 16,
-    //-       'Safari': 10.1,
-    //-       'Mobile Safari': 10.3,
-    //-       'Firefox': 54,
-    //-       'Opera': 44,
-    //-       'IE': false
-    //-     },
-    //-     isUnknownBrowserOK: true
-    //-   });
-
     block title
       title Daniel Hruška: #{title}
 
@@ -39,16 +23,18 @@ html(lang="en")
       meta(property="og:image:height" content="630")
       meta(name="color-scheme" content="dark light")
       link(rel="icon" href="img/favicon.svg" type="image/svg+xml")
-      link(rel="icon" href="../img/favicon-lt.svg" type="image/svg+xml" media="(prefers-color-scheme: light)")
-      link(rel="icon" href="../img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)")
-      link(rel="mask-icon" href="../img/favicon.svg" type="image/svg+xml" color="#F48525" media="(prefers-color-scheme: light)")
-      link(rel="mask-icon" href="../img/favicon.svg" type="image/svg+xml" color="#D76909" media="(prefers-color-scheme: dark)")
+      link(rel="icon" href="/img/favicon-lt.svg" type="image/svg+xml" media="(prefers-color-scheme: light)")
+      link(rel="icon" href="/img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)")
+      link(rel="mask-icon" href="/img/favicon.svg" type="image/svg+xml" color="#F48525" media="(prefers-color-scheme: light)")
+      link(rel="mask-icon" href="/img/favicon.svg" type="image/svg+xml" color="#D76909" media="(prefers-color-scheme: dark)")
 
     block styles
-      link(rel="stylesheet" type="text/css" href="css/index.css")
+      link(rel="stylesheet" type="text/css" href="/css/index.css")
 
     block scripts
+
       //-script(type="module" src="https://unpkg.com/ninja-keys?module")
+
       // Global site tag (gtag.js) - Google Analytics
       script(async src="https://www.googletagmanager.com/gtag/js?id=G-6JLXDJ81CL")
       script.
@@ -57,9 +43,11 @@ html(lang="en")
         gtag('js', new Date());
 
         gtag('config', 'G-6JLXDJ81CL');
-   
+
+
+
   body
-    //-ninja-keys.dark(placeholder="Přejít na…", goBackHotkey="backspace,left", hideBreadcrumbs, noAutoLoadMdIcons)
+    //-ninja-keys.dark(placeholder="Přejít na…" goBackHotkey="backspace,left", hideBreadcrumbs, noAutoLoadMdIcons)
       div(slot="footer")
     block canvas
 

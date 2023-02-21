@@ -1,35 +1,6 @@
 @dark:     ~"(prefers-color-scheme: dark)";
 @light:     ~"(prefers-color-scheme: light)";
 
-.dots() {
-    --dot-spacing: 12px;
-    --dot-size: 1px;
-    background-color: var(--site-bg);
-    background-image: radial-gradient(var(--dot-bg) var(--dot-size), transparent var(--dot-size));
-    background-size: calc(14 * var(--dot-size)) calc(14 * var(--dot-size));
-
-    @media screen and (min-width: 720px) {
-        background-size: calc(16 * var(--dot-size)) calc(16 * var(--dot-size));
-    }
-
-    @media screen and (min-width: 1500px) {
-        background-size: calc(20 * var(--dot-size)) calc(20 * var(--dot-size));
-    }
-
-    @media (-webkit-min-device-pixel-ratio: 2) { 
-        --dot-size: 0.5px;
-        background-size: calc(20 * var(--dot-size)) calc(20 * var(--dot-size));
-    }
-
-    @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 720px) { 
-        background-size: calc(24 * var(--dot-size)) calc(24 * var(--dot-size));
-    }
-
-    @media (-webkit-min-device-pixel-ratio: 2) and (min-width: 1500px) { 
-        background-size: calc(32 * var(--dot-size)) calc(32 * var(--dot-size));
-    }
-}
-
 @import "_includes/_colors-palette.less";
 @import "_includes/_colors-palette-css.less";
 @import "_includes/_colors-branding.less";
@@ -43,3 +14,14 @@
 @import "elements/link.less";
 @import "elements/header.less";
 //@import "elements/ninja-keys.less";
+
+main  {
+    position: relative;
+    z-index: 1;
+}
+
+.webgl {
+    position: fixed;
+    inset: 0;
+    outline: none;
+}

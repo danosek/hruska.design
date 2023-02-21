@@ -1,5 +1,5 @@
 ---
-title: Using Vue-CLI to serve an Express app and some dummy textforbeinglog
+title: Using Vue-CLI to serve an Express app
 ogImage: vue
 lang: en
 tags:
