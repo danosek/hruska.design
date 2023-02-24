@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html article>
+  <head>
+    <script src="/js/outdated-browser-rework.min.js"></script>
+    <script>
+      outdatedBrowserRework({
+         browserSupport: {
+            'Chrome': 106,
+            'Edge': 106,
+            'Safari': 16,
+            'Mobile Safari': 16,
+            'Firefox': 110,
+            'Opera': 95,
+            'IE': false
+         }
+      })
+      
+    </script>
+    <title>Daniel Hruška: One-liner: centering element with margin</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Supposing you have an element with width or maximum width, you are trying to center:
+.foo {
+   margin-inline: auto;
+}
+
+This is better solut…">
+    <meta name="author" content="Daniel Hruška">
+    <meta property="og:site_name" content="Daniel Hruška">
+    <meta property="og:title" content="One-liner: centering element with margin">
+    <meta property="og:description" content="Supposing you have an element with width or maximum width, you are trying to center:
+.foo {
+   margin-inline: auto;
+}
+
+This is better solut…">
+    <meta property="og:url" content="https://hruska.design/articles/one-liner-centering-element-with-margin.html">
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/article.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="icon" href="/img/favicon-lt.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+    <link rel="mask-icon" href="/img/favicon.svg" type="image/svg+xml" color="#F48525" media="(prefers-color-scheme: light)">
+    <link rel="mask-icon" href="/img/favicon.svg" type="image/svg+xml" color="#D76909" media="(prefers-color-scheme: dark)">
+    <!-- Global site tag (gtag.js) - Google Analytics-->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6JLXDJ81CL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      
+      gtag('config', 'G-6JLXDJ81CL');
+      
+    </script>
+  </head>
+  <body>
+    <canvas class="webgl"></canvas>
+    <main>
+      <header> 
+        <h1 title="Hruška Design" aria-label="Hruška Design"><a href="/"><span class="name">hruska</span><span class="domain">design</span>
+            <!--span.dot _--></a></h1>
+        <nav><a href="/">Work</a><a href="/blog/">Blog</a></nav>
+      </header>
+      <article>
+        <header>
+          <h1>One-liner: centering element with margin</h1>
+        </header>
+        <date>February 24, 23</date>
+        <article-content><p>Supposing you have an element with width or maximum width, you are trying to center:</p>
+<pre><code class="language-css"><span class="hljs-selector-class">.foo</span> {
+   <span class="hljs-attribute">margin-inline</span>: auto;
+}
+</code></pre>
+<p>This is better solution than <code>margin: 0 auto</code> because that <code>0</code> on block direction could reset margins, you don’t want to change.</p>
+<p>That’s all. Ahoj.</p>
+
+        </article-content>
+      </article>
+      <footer>
+        <sibling-articles>
+          <p> <span>Previous article</span><a href="../units-ch-and-ex">CSS units 'ch' &amp; 'ex'</a></p>
+          <p><span>This is the last article</span><a href="/blog">All articles</a></p>
+        </sibling-articles><a class="subscribe-link" href="/atom.xml">Subscribe</a>
+      </footer>
+    </main>
+    <script>
+      const anchors = document.querySelectorAll('article a');
+      anchors.forEach((a) => {
+         a.setAttribute('target', '__blank');
+         a.setAttribute('rel', 'noopener noreferrer');
+         console.log("link");
+      });
+      
+    </script>
+    <script src="/js/particles-article.js" type="module"> </script>
+  </body>
+</html>

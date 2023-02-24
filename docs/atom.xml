@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8" ?><feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://example.org"><id>https://example.org/atom.xml</id><title>Daniel Hruška's Blog</title><updated>2023-02-21T00:00:00.000Z</updated><link href="/"></link><link rel="self" href="/atom.xml"></link><entry><id>units-ch-and-ex</id><title>CSS units 'ch' &amp; 'ex'</title><link href="/articles/units-ch-and-ex/"></link><updated>2023-02-21T00:00:00.000Z</updated><content type="html">&lt;p&gt;You know them, the usual suspects:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" ?><feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://example.org"><id>https://example.org/atom.xml</id><title>Daniel Hruška's Blog</title><updated>2023-02-24T00:00:00.000Z</updated><link href="/"></link><link rel="self" href="/atom.xml"></link><entry><id>one-liner-centering-element-with-margin</id><title>One-liner: centering element with margin</title><link href="/articles/one-liner-centering-element-with-margin/"></link><updated>2023-02-24T00:00:00.000Z</updated><content type="html">&lt;p&gt;Supposing you have an element with width or maximum width, you are trying to center:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;hljs-selector-class&quot;&gt;.foo&lt;/span&gt; {
+   &lt;span class=&quot;hljs-attribute&quot;&gt;margin-inline&lt;/span&gt;: auto;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This is better solution than &lt;code&gt;margin: 0 auto&lt;/code&gt; because that &lt;code&gt;0&lt;/code&gt; on block direction could reset margins, you don’t want to change.&lt;/p&gt;
+&lt;p&gt;That’s all. Ahoj.&lt;/p&gt;
+</content></entry><entry><id>units-ch-and-ex</id><title>CSS units 'ch' &amp; 'ex'</title><link href="/articles/units-ch-and-ex/"></link><updated>2023-02-21T00:00:00.000Z</updated><content type="html">&lt;p&gt;You know them, the usual suspects:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;rem&lt;/code&gt;: Relative size to root element size. I always set the base size on &lt;code&gt;:root&lt;/code&gt; and it could be anything - &lt;code&gt;16px&lt;/code&gt;, &lt;code&gt;20pt&lt;/code&gt;, &lt;code&gt;3cm&lt;/code&gt;, …&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;em&lt;/code&gt;: Relative size to the element size. If you have for example &lt;code&gt;14pt&lt;/code&gt; on the root element, &lt;code&gt;2em&lt;/code&gt; means &lt;code&gt;28pt&lt;/code&gt;.&lt;/li&gt;

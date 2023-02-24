@@ -122,7 +122,7 @@ article header h1 {
 article header h1 {
   margin-block: 0;
   white-space: revert;
-  color: var(--primary--40);
+  color: var(--primary);
   --heading-weight: var(--blog-heading-weight);
   max-inline-size: 10ch;
   letter-spacing: initial;

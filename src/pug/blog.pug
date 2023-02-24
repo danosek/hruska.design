@@ -27,11 +27,13 @@ block content
                year-group
                   h2= year.year
                   ul
-                     each a in year.articles
-                        - var options = { day: '2-digit', month: 'short' };         
+                     each a, index in year.articles
+                        - var options = { day: '2-digit', month: 'short' };  
+                        - var entryNo = mvb.articles.length - index;     
                         li
                            article
-                              date= a.date.toLocaleDateString("en", options)
+                              //date= a.date.toLocaleDateString("en", options)
+                              entry-number= entryNo
                               h3 
                                  a(href=`/articles/${a.id}/`)= a.title
          else

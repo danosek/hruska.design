@@ -37,11 +37,9 @@ articles > * {
   margin: 0;
 }
 articles h3 {
-  font-family: var(--font-stack-headings);
   font-size: var(--font-size-l);
-  font-weight: var(--heading-weight);
-  font-feature-settings: var(--heading-features);
-  font-weight: var(--articles-list-heading-weight);
+  font-weight: var(--text-weight);
+  font-family: var(--font-stack);
 }
 articles .no-articles {
   font-family: var(--font-stack-headings);
@@ -108,9 +106,9 @@ h3 {
   display: block;
 }
 article {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
+  display: grid;
+  align-items: first baseline;
+  gap: 0.25em;
 }
 article h3 {
   margin-block: 0;
@@ -118,7 +116,7 @@ article h3 {
 @media only screen and (min-width: 720px) {
   article {
     display: grid;
-    grid-template-columns: 10ch 1fr;
+    grid-template-columns: 6ch 1fr;
   }
   article > * {
     display: inline;
@@ -129,7 +127,7 @@ article h3 {
     text-decoration-line: none;
   }
 }
-date {
+entry-number {
   inline-size: fit-content;
   color: var(--primary);
   white-space: nowrap;
