@@ -118,28 +118,29 @@ article {
     //     margin-block-start: 1em;
     // }
 
-    @media only screen and (min-width: 720px) {
+    @media only screen and (min-width: 90ch) {
         display: grid;
-        grid-template-columns: [header-start date-start] minmax(8ch, 1fr) [date-end content-start] minmax(0, calc(var(--article-lenght) * 0.2)) [d] minmax(0, calc(var(--article-lenght) * 0.8)) [content-end] minmax(8ch, 1fr) [header-end];
-        gap: 4rem 1rem;
+        grid-template-columns: [date-start] minmax(10ch, 1fr) [date-end header-start content-start] minmax(0, calc(var(--article-lenght) * 0.2)) minmax(0, calc(var(--article-lenght) * 0.8)) [content-end header-end] minmax(10ch, 1fr);
+        gap: 2rem 1rem;
         align-items: baseline;
     }
 }
 
 date {
     display: block;
-    color: var(--primary);
+    color: var(--primary--70);
     white-space: nowrap;
     .font-s();
     inline-size: fit-content;
     
-    padding-block-end: 1em;
+    //padding-block-end: 1em;
     //padding-inline-end: clamp(1rem, 8vw, 6rem);
-    border-block-end: var(--border-width) solid;
+    //border-block-end: var(--border-width) solid;
     align-self: start;
     
-    @media only screen and (min-width: 720px) {
+    @media only screen and (min-width: 90ch) {
         inline-size: auto;
+        text-align: end;
     }
 }
 
@@ -167,7 +168,7 @@ article header h1 {
     color: var(--primary);
     --heading-weight: var(--blog-heading-weight);
     //font-stretch: var(--blog-heading-width);
-    max-inline-size: 10ch;
+    //max-inline-size: 10ch;
     letter-spacing: initial;
 }
 

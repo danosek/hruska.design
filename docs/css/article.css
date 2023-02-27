@@ -79,28 +79,27 @@ article :is(h1, h2, h3, h4, h5, h6) a {
 article ul {
   list-style: circle outside;
 }
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 90ch) {
   article {
     display: grid;
-    grid-template-columns: [header-start date-start] minmax(8ch, 1fr) [date-end content-start] minmax(0, calc(var(--article-lenght) * 0.2)) [d] minmax(0, calc(var(--article-lenght) * 0.8)) [content-end] minmax(8ch, 1fr) [header-end];
-    gap: 4rem 1rem;
+    grid-template-columns: [date-start] minmax(10ch, 1fr) [date-end header-start content-start] minmax(0, calc(var(--article-lenght) * 0.2)) minmax(0, calc(var(--article-lenght) * 0.8)) [content-end header-end] minmax(10ch, 1fr);
+    gap: 2rem 1rem;
     align-items: baseline;
   }
 }
 date {
   display: block;
-  color: var(--primary);
+  color: var(--primary--70);
   white-space: nowrap;
   font-size: var(--font-size-s);
   font-weight: var(--text-weight);
   inline-size: fit-content;
-  padding-block-end: 1em;
-  border-block-end: var(--border-width) solid;
   align-self: start;
 }
-@media only screen and (min-width: 720px) {
+@media only screen and (min-width: 90ch) {
   date {
     inline-size: auto;
+    text-align: end;
   }
 }
 article-content {
@@ -124,7 +123,6 @@ article header h1 {
   white-space: revert;
   color: var(--primary);
   --heading-weight: var(--blog-heading-weight);
-  max-inline-size: 10ch;
   letter-spacing: initial;
 }
 h2 {
