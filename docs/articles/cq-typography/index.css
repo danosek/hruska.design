@@ -1,0 +1,12 @@
+@layer demo;
+@layer demo {
+  demo {
+    display: block;
+    inline-size: 100vi;
+    margin-inline: calc(calc(calc(100vi - 100cqi) / 2) * -1);
+    container: cq-typography / inline-size;
+  }
+  p {
+    font-size: clamp(1rem, 3cqi, 3rem);
+  }
+}

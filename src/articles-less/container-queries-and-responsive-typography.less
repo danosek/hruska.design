@@ -1,0 +1,32 @@
+@layer demo;
+
+@layer demo {
+    demo {
+        display: flex;
+        justify-content: center;
+        //inline-size: 100vi;
+        //inline-size: max-content;
+        margin-inline: calc(calc(calc(100vi - 100cqi) / 2) * -1);
+       
+        
+        wrapper {
+            display: block;
+            container: cq-typography / inline-size;
+            overflow: hidden;
+            resize: horizontal;
+            border: var(--border-width) solid var(--primary);
+            background-color: var(--secondary--90);
+            min-inline-size: 10ch;
+            max-inline-size: 90vi;
+            border-radius: var(--radius-3x);
+        }
+
+        p {
+            font-size: clamp(1rem, 10cqi, 8rem);
+            margin: 0.5em !important;
+            color: var(--primary);
+        }
+    }
+}
+
+

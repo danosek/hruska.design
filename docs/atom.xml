@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" ?><feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://example.org"><id>https://example.org/atom.xml</id><title>Daniel Hruška's Blog</title><updated>2023-02-24T00:00:00.000Z</updated><link href="/"></link><link rel="self" href="/atom.xml"></link><entry><id>one-liner-centering-element-with-margin</id><title>One-liner: centering element with margin</title><link href="/articles/one-liner-centering-element-with-margin/"></link><updated>2023-02-24T00:00:00.000Z</updated><content type="html">&lt;p&gt;Supposing you have an element with width or maximum width, you are trying to center:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" ?><feed xmlns="http://www.w3.org/2005/Atom" xml:base="https://hruska.design/"><id>https://hruska.design/atom.xml</id><title>Daniel Hruška's Blog</title><updated>2023-03-10T00:00:00.000Z</updated><link href="/"></link><link rel="self" href="/atom.xml"></link><entry><id>container-queries-and-responsive-typography</id><title>Container Queries and Responsive Typography</title><link href="/articles/container-queries-and-responsive-typography/"></link><updated>2023-03-10T00:00:00.000Z</updated><content type="html">&lt;p&gt;If you were designing and styling web components containing text, you‘ve ran into an issue. You’ve wanted the text to have dynamic size based on element size. Container Queries have enabled just that.&lt;/p&gt;
+&lt;p&gt;Having said that, setting font size to CQ unit alone is not doing exactly the thing. When the container is small, text is barely legible. And when the container is wide, text becomes huge.&lt;/p&gt;
+&lt;p&gt;We have to add boundaries for minimum and maximum font size. And that is a perfect use-case for function &lt;code&gt;clamp()&lt;/code&gt;. You pass three values as parameters:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Minimum&lt;/li&gt;
+&lt;li&gt;Preferred&lt;/li&gt;
+&lt;li&gt;Maximum&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;font-size: clamp(1rem, 3cqi, 3rem)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Does this (you can resize the element):&lt;/p&gt;
+&lt;!--=include cq-typography.html --&gt;
+&lt;p&gt;That’s all. Ahoj.&lt;/p&gt;
+</content></entry><entry><id>one-liner-centering-element-with-margin</id><title>One-liner: centering element with margin</title><link href="/articles/one-liner-centering-element-with-margin/"></link><updated>2023-02-24T00:00:00.000Z</updated><content type="html">&lt;p&gt;Supposing you have an element with width or maximum width, you are trying to center:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;hljs-selector-class&quot;&gt;.foo&lt;/span&gt; {
    &lt;span class=&quot;hljs-attribute&quot;&gt;margin-inline&lt;/span&gt;: auto;
 }
