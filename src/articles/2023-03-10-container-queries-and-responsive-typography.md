@@ -1,5 +1,5 @@
 ---
-title: Container Queries and Responsive Typography 
+title: Container queries and responsive typography 
 lang: en
 ---
 
