@@ -37,7 +37,7 @@ Styling is done by CSS (shocker). In this case I use [Less](https://lesscss.org)
 When thinking about a blog, [Markdown](https://daringfireball.net/projects/markdown/) is a must. I've been using Markdown for writing and notes more than 10 years. I've wanted my blog to be as simple as possible – throw `.md` files in a folder and make things happen. Thankfully there is [gulp-mvb](https://github.com/dennisreimann/gulp-mvb) plugin which is pure gold.
 
 ###  Typography
-- Overpass
+- Bookerly
 - Overpass Mono
 - Marvin Visions
 

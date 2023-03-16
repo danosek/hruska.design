@@ -1,8 +1,8 @@
 :root {
     /* Typography */
-    --font-stack: "Overpass", system-ui, sans-serif;
+    --font-stack: "Bookerly LCD", serif;
     --font-stack-headings: 'Marvin Vision', system-ui, sans-serif;
-    --font-stack-article: 'Overpass', system-ui, sans-serif;
+    --font-stack-article: 'Bookerly LCD', serif;
     --font-stack-mono: 'Overpass Mono', monospace;
 
     /* Sharpiness */
@@ -11,7 +11,8 @@
     --radius-3x: 20px;
 
     /* Spacing */
-    --edge-s: 3ch;
+    --edge-s: 1ch;
+    --edge-m: 2ch;
     --edge-l: 6ch;
     --edge: var(--edge-s);
 
@@ -21,9 +22,12 @@
     --header-height: 3rem;
     
     /* Border */
-    --border-width: 2px;
+    --border-width: 1px;
     --border-style: dashed;
     
+    @media only screen and (min-width: 480px) {
+        --edge: var(--edge-m);    }
+
     @media only screen and (min-width: 900px) {
         --edge: var(--edge-l);
         --header-height: 4rem;

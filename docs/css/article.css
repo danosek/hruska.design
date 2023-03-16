@@ -1,5 +1,5 @@
 :where(:root, *) {
-  --container-size: 1600px;
+  --container-size: 100%;
   --article-lenght: 48ch;
   --section-gap: clamp(2rem, 8vw, 4rem);
   --section-gap-h: calc(var(--section-gap) / 2);
@@ -82,14 +82,14 @@ article ul {
 @media only screen and (min-width: 90ch) {
   article {
     display: grid;
-    grid-template-columns: [date-start] minmax(10ch, 1fr) [date-end header-start content-start] minmax(0, calc(var(--article-lenght) * 0.2)) minmax(0, calc(var(--article-lenght) * 0.8)) [content-end header-end] minmax(10ch, 1fr);
+    grid-template-columns: minmax(10ch, 1fr) [date-start header-start content-start] minmax(0, calc(var(--article-lenght) * 0.2)) minmax(0, calc(var(--article-lenght) * 0.8)) [date-end content-end header-end] minmax(10ch, 1fr);
     gap: 2rem 1rem;
     align-items: baseline;
   }
 }
 date {
   display: block;
-  color: var(--primary--70);
+  color: var(--text-disabled-color);
   white-space: nowrap;
   font-size: var(--font-size-s);
   font-weight: var(--text-weight);
@@ -99,7 +99,6 @@ date {
 @media only screen and (min-width: 90ch) {
   date {
     inline-size: auto;
-    text-align: end;
   }
 }
 article-content {
@@ -121,7 +120,7 @@ article header h1 {
 article header h1 {
   margin-block: 0;
   white-space: revert;
-  color: var(--primary);
+  color: var(--primary--40);
   --heading-weight: var(--blog-heading-weight);
   letter-spacing: initial;
 }
@@ -156,20 +155,16 @@ sibling-articles p {
   color: var(--text-pure);
   gap: 1ex;
 }
-sibling-articles p > span {
-  color: var(--secondary--70);
-}
 sibling-articles a {
   flex: 1;
   font-family: var(--font-stack-headings);
-  font-size: var(--font-size-l);
+  font-size: var(--font-size-xl);
   font-weight: var(--heading-weight);
   font-feature-settings: var(--heading-features);
   line-height: 1em;
-  max-inline-size: 15ch;
+  max-inline-size: 20ch;
   --heading-weight: var(--blog-heading-weight);
-  --link-color: var(--secondary--70);
-  --link-bg: var(--secondary-a);
+  --link-color: var(--primary--40);
 }
 @media (pointer: fine) {
   sibling-articles a {
@@ -191,7 +186,7 @@ footer {
   row-gap: var(--section-gap);
   padding-block-start: var(--section-gap);
   align-items: start;
-  border-block-start: 1px solid var(--secondary--80);
+  border-block-start: 1px solid var(--divider);
 }
 .subscribe-link {
   --link-color: var(--primary);

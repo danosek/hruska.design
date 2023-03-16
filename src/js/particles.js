@@ -77,9 +77,9 @@ mesh1.position.y = objectsDistance * -1.9
 mesh2.position.y = objectsDistance * -3.1
 mesh3.position.y = objectsDistance * -4.5
 
-mesh1.position.x = 1.35
-mesh2.position.x = 1.50
-mesh3.position.x = 1.25
+mesh1.position.x = -1.35
+mesh2.position.x = -1.50
+mesh3.position.x = -1.25
 
 scene.add(mesh1, mesh2, mesh3)
 
@@ -90,7 +90,7 @@ const sectionMeshes = [ mesh1, mesh2, mesh3 ]
  */
 
 // Geometry 1
-const particlesCount = 3000
+const particlesCount = 1000
 const positions = new Float32Array(particlesCount * 3)
 const colors = new Float32Array(particlesCount * 3)
 
@@ -98,7 +98,7 @@ for (let i = 0; i < particlesCount; i++) {
     const randomColor = new THREE.Color(particleColors[Math.floor(Math.random()*particleColors.length)])
 
     positions[i * 3 + 0] = (Math.random() - 0.5) * 30 // X
-    positions[i * 3 + 1] = (Math.random() - 0.3) * 12 // Y
+    positions[i * 3 + 1] = (Math.random() - 0.1) * 12 // Y
     positions[i * 3 + 2] = ((Math.random() - 1) * 25) - 10 // Z
 
     colors[i * 3 + 0] = randomColor.r
@@ -111,7 +111,7 @@ particlesGeometry1.setAttribute("position", new THREE.BufferAttribute(positions,
 particlesGeometry1.setAttribute('color', new THREE.BufferAttribute(colors, 3))
 
 // Geometry 2
-const particlesCount2 = 1000
+const particlesCount2 = 200
 const positions2 = new Float32Array(particlesCount2 * 3)
 const colors2 = new Float32Array(particlesCount2 * 3)
 
@@ -268,8 +268,8 @@ const tick = () =>
 
     // Animate mehses
     for (const mesh of sectionMeshes) {
-        mesh.rotation.x += deltaTime * 0.1
-        mesh.rotation.y += deltaTime * 0.12
+        mesh.rotation.x += deltaTime * 0.05
+        mesh.rotation.y += deltaTime * 0.06
     }
 
     // Render

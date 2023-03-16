@@ -17,7 +17,7 @@
   --orange--60: hsl(28 100% 44%);
   --orange--70: hsl(28 90% 33%);
   --orange--80: hsl(28 90% 20%);
-  --orange--90: hsl(28 55% 11%);
+  --orange--90: hsl(28 50% 11%);
   --orange--100: hsl(28 50% 7%);
   --indigo: hsl(var(--indigo--base));
   --indigo-a: hsl(var(--indigo--base) / var(--alpha));
@@ -29,7 +29,7 @@
   --indigo--60: hsl(230 75% 58%);
   --indigo--70: hsl(230 44% 43%);
   --indigo--80: hsl(230 44% 26%);
-  --indigo--90: hsl(230 9% 14%);
+  --indigo--90: hsl(230 4% 14%);
   --indigo--100: hsl(230 4% 9%);
   --grey--10: hsl(0 0% 98%);
   --grey--20: hsl(0 0% 95%);
@@ -76,7 +76,6 @@
   --divider: hsl(0 0% 100% / 0.24);
   --overlay: hsl(0 0% 100% / 0.18);
   --site-bg: var(--secondary--100);
-  --secondary: var(--secondary--50);
   --selection-bg: var(--primary--80);
   --dot-bg: var(--text-secondary-color);
   --card-bg: var(--secondary--90);
@@ -108,15 +107,48 @@
   src: url("../fonts/marvin-visions.woff2") format("woff2");
   font-weight: 20 170;
 }
+@font-face {
+  font-family: 'Bookerly LCD';
+  src: url("../fonts/BookerlyLCD_W_Rg.woff2") format("woff2");
+}
+@font-face {
+  font-family: 'Bookerly LCD';
+  src: url("../fonts/BookerlyLCD_W_Rg.woff2") format("woff2");
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Bookerly LCD';
+  src: url("../fonts/BookerlyLCD_W_Bd.woff2") format("woff2");
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'Bookerly LCD';
+  src: url("../fonts/BookerlyLCD_W_Bd.woff2") format("woff2");
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Bookerly LCD';
+  src: url("../fonts/BookerlyLCD_W_Bd.woff2") format("woff2");
+  font-weight: 800;
+}
+@font-face {
+  font-family: 'Bookerly LCD';
+  src: url("../fonts/BookerlyLCD_W_Bd.woff2") format("woff2");
+  font-weight: 900;
+}
+@font-face {
+  font-family: 'Bookerly';
+  src: url("../fonts/Bookerly-Regular.ttf") format("truetype");
+}
 :root {
   /* Scale */
   --font-size-s: clamp(0.9rem, -0.2vw + 0.9rem, 0.9rem);
   --font-size-base: clamp(1rem, 0.2vw + 1rem, 1.05rem);
-  --font-size-l: clamp(1.2rem, 0.8vw + 1.1rem, 1.5rem);
-  --font-size-xl: clamp(1.4rem, 2.1vw + 1.1rem, 2.9rem);
-  --font-size-xxl: clamp(1.7rem, 4.2vw + 1rem, 4.7rem);
-  --font-size-xxxl: clamp(2.1rem, 7.8vw + 0.7rem, 8.6rem);
-  --font-size-mega: clamp(2.5rem, 8.8vw + 0.2rem, 10.3rem);
+  --font-size-l: clamp(1rem, 0.2vw + 1rem, 1.05rem);
+  --font-size-xl: clamp(1.4rem, 2.1vw + 1.1rem, 2rem);
+  --font-size-xxl: clamp(1.7rem, 4.2vw + 1rem, 6rem);
+  --font-size-xxxl: clamp(2.1rem, 7.8vw + 0.7rem, 8rem);
+  --font-size-mega: clamp(2.5rem, 8.8vw + 0.2rem, 10rem);
   /* Line height */
   --line-height-text: 1.7;
   --line-height-medium: 1.3;
@@ -127,7 +159,7 @@
   --blog-heading-width: 100%;
   --heading-weight: 170;
   --heading-weight-sections: 40;
-  --text-weight: 350;
+  --text-weight: 400;
   --heading-features: none;
   font-feature-settings: "zero";
 }
@@ -210,6 +242,7 @@ ul {
 mark {
   --alpha: 0.2;
   background-color: var(--mark-bg);
+  padding: var(--tag-padding);
   border-radius: var(--radius);
   color: var(--primary--40);
 }
@@ -241,24 +274,30 @@ blockquote {
 }
 :root {
   /* Typography */
-  --font-stack: "Overpass", system-ui, sans-serif;
+  --font-stack: "Bookerly LCD", serif;
   --font-stack-headings: 'Marvin Vision', system-ui, sans-serif;
-  --font-stack-article: 'Overpass', system-ui, sans-serif;
+  --font-stack-article: 'Bookerly LCD', serif;
   --font-stack-mono: 'Overpass Mono', monospace;
   /* Sharpiness */
   --radius: 4px;
   --radius-2x: 8px;
   --radius-3x: 20px;
   /* Spacing */
-  --edge-s: 3ch;
+  --edge-s: 1ch;
+  --edge-m: 2ch;
   --edge-l: 6ch;
   --edge: var(--edge-s);
   --tag-padding: 0 0.2ch;
   --tag-margin: 0 -0.2ch;
   --header-height: 3rem;
   /* Border */
-  --border-width: 2px;
+  --border-width: 1px;
   --border-style: dashed;
+}
+@media only screen and (min-width: 480px) {
+  :root {
+    --edge: var(--edge-m);
+  }
 }
 @media only screen and (min-width: 900px) {
   :root {
@@ -279,7 +318,10 @@ blockquote {
   font-family: var(--font-stack-mono);
 }
 :not(pre) > code {
-  color: var(--text-secondary-color);
+  padding: var(--tag-padding);
+  border-radius: var(--radius);
+  color: var(--text-pure);
+  background-color: var(--code-bg);
 }
 a:hover > code,
 mark > code {
@@ -477,7 +519,7 @@ a {
   z-index: 0;
   color: var(--link-color);
   text-decoration-line: underline;
-  text-decoration-thickness: 2px;
+  text-decoration-thickness: var(--border-width);
   text-underline-offset: 4px;
   text-decoration-color: var(--link-decoration-color);
   border-radius: var(--radius);
@@ -524,7 +566,7 @@ main > header h1 .name {
   padding-inline-end: 0.1ch;
 }
 main > header h1 .domain {
-  color: var(--secondary);
+  color: var(--primary--40);
 }
 main > header h1 .dot {
   color: var(--secondary);

@@ -1,7 +1,7 @@
 @import (reference) "index.less";
 
 :where(:root, *) {
-    --container-size: 1600px;
+    --container-size: 100%;
     --article-lenght: 48ch;
     --section-gap: clamp(2rem, 8vw, 4rem);
     --section-gap-h: calc(var(--section-gap) / 2);
@@ -120,7 +120,7 @@ article {
 
     @media only screen and (min-width: 90ch) {
         display: grid;
-        grid-template-columns: [date-start] minmax(10ch, 1fr) [date-end header-start content-start] minmax(0, calc(var(--article-lenght) * 0.2)) minmax(0, calc(var(--article-lenght) * 0.8)) [content-end header-end] minmax(10ch, 1fr);
+        grid-template-columns: minmax(10ch, 1fr) [date-start header-start content-start] minmax(0, calc(var(--article-lenght) * 0.2)) minmax(0, calc(var(--article-lenght) * 0.8)) [date-end content-end header-end] minmax(10ch, 1fr);
         gap: 2rem 1rem;
         align-items: baseline;
     }
@@ -128,7 +128,7 @@ article {
 
 date {
     display: block;
-    color: var(--primary--70);
+    color: var(--text-disabled-color);
     white-space: nowrap;
     .font-s();
     inline-size: fit-content;
@@ -140,7 +140,7 @@ date {
     
     @media only screen and (min-width: 90ch) {
         inline-size: auto;
-        text-align: end;
+        //text-align: end;
     }
 }
 
@@ -165,7 +165,7 @@ article header h1 {
     margin-block: 0;
     white-space: revert;
     //word-spacing: -0.03em;
-    color: var(--primary);
+    color: var(--primary--40);
     --heading-weight: var(--blog-heading-weight);
     //font-stretch: var(--blog-heading-width);
     //max-inline-size: 10ch;
@@ -207,19 +207,18 @@ sibling-articles {
         //.font-base();
 
         > span {
-            color: var(--secondary--70);
+            //color: var(--primary--40);
         }
     }
     
     a {
         flex: 1;
         //width: fit-content;
-        .heading-l();
+        .heading-xl();
         line-height: 1em;
-        max-inline-size: 15ch;
+        max-inline-size: 20ch;
         --heading-weight: var(--blog-heading-weight);
-        --link-color: var(--secondary--70);
-        --link-bg: var(--secondary-a);
+        --link-color: var(--primary--40);
 
         @media (pointer: fine) {
             text-decoration-line: none;
@@ -247,7 +246,7 @@ footer {
     row-gap: var(--section-gap);
     padding-block-start: var(--section-gap);
     align-items: start;
-    border-block-start: 1px solid var(--secondary--80);
+    border-block-start: 1px solid var(--divider);
 }
 
 .subscribe-link {
