@@ -167,15 +167,15 @@ projects {
   padding-block-start: var(--section-gap-h);
   border-block-start: var(--border-width) solid var(--section-divider-color);
 }
-@container (inline-size > 90ch) {
+@container projects (inline-size > 60ch) {
   projects {
-    grid-template-columns: repeat(2, minmax(0, 40ch));
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 project {
   --project-gap: 1rem;
   display: grid;
-  grid-template-columns: minmax(0, 50ch);
+  max-inline-size: 40ch;
   scroll-snap-align: start;
   gap: var(--project-gap);
 }

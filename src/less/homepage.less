@@ -223,9 +223,9 @@ projects {
     
 }
 
-@container  (inline-size > 90ch) {
+@container projects (inline-size > 60ch) {
     projects {
-        grid-template-columns: repeat(2, minmax(0, 40ch));
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -233,7 +233,7 @@ projects {
 project {
     --project-gap: 1rem;
     display: grid;
-    grid-template-columns: minmax(0, 50ch);
+    max-inline-size: 40ch;
     scroll-snap-align: start;
     gap: var(--project-gap);
 
@@ -248,13 +248,6 @@ project {
     }
     
     &:last-of-type {
-        //border-block-start-style: dashed;
-        //color: var(--primary);
-
-        // p {
-        //     color: var(--primary);
-        // }
-
         h3 {
             color: var(--primary);
         }

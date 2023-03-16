@@ -88,7 +88,7 @@ year-group ul {
 year-group:not(:last-of-type) {
   padding-block-end: var(--section-gap);
 }
-@container articles (inline-size > 100ch) {
+@container articles (inline-size > 90ch) {
   year-group {
     grid-template-columns: 1fr 1fr;
   }
@@ -147,7 +147,7 @@ article h3 {
     text-decoration-line: none;
   }
 }
-@container articles (inline-size > 100ch) {
+@container articles (inline-size > 90ch) {
   article {
     display: grid;
     grid-template-columns: 6ch 1fr;
